@@ -88,11 +88,43 @@
 -- ORDER BY
 --  avg_price DESC;
 --
--- 1a) Neighborhoodsthat 
+-- 
 
 -- FINDINGS: The large gap bewtween average and median prices can indicate the high-priced outliers are inflating the neighborhood's average, and smaller
--- gaps may suggest the average is more representative of typical listing prices.
--- There are a few neighborhoods that stand out because they show top 50 average price, with over 1,000 listings, and the median difference much closer to the average.
+-- gaps may suggest the average is more representative of typical listing prices. Also, the volume of listings in top average price neighborhoods are
+-- considerably less listings in comparison to other neighborhoods within the top average list. 
+
+-- To identify neighborhoods where high prices are supported by a larger number of listings, I narrowed the analysis to the top 50 neighborhoods by average price, 
+-- then identified those with more than 1,000 listings and compared their average and median prices to determine how representative the average price is of a 
+-- typical listing.
+--
+-- WITH top_50 AS (
+-- SELECT 
+--  neighbourhood_group,
+--  neighbourhood,
+--  COUNT(*) AS total_listings,
+--  ROUND(AVG(price), 2) AS avg_price,
+--  APPROX_QUANTILES(price, 2)[OFFSET (1)] AS median_price,
+--  ROUND(AVG(price) - APPROX_QUANTILES(price, 2)[OFFSET (1)], 2) AS avg_median_difference
+-- FROM 
+--  `sixth-beaker-478016-f6.NYC_AIRBNB.NYC_AIRBNB_LISTINGS`
+-- WHERE
+--  price > 0 
+-- GROUP BY
+--  neighbourhood_group,
+--  neighbourhood
+-- ORDER BY
+--  avg_price DESC
+-- LIMIT 50
+-- )
+-- SELECT *
+-- FROM top_50
+-- WHERE total_listings > 1000
+-- ORDER BY avg_price DESC;
+
+
+
+--
 --
 -- 
 
