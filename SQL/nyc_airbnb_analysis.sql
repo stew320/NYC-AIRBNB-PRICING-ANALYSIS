@@ -8,7 +8,7 @@
 --opportunities across neighborhoods and room types.
 
 
---SECTION 1: DATA EXPLORATION & QUALITY CHECKS
+--SECTION 1: DATA EXPLORATION & QUALITY CHECKS USING SQL
 
 -- Total Listings: 48,895 - establishes size of dataset prior to any filtering.
 --
@@ -61,6 +61,38 @@
 -- Further analysis showed the missing reviews_per_month values correspond with listings that have zero reviews.
 --
 -- SECTION 2: Business Analysis
+-- After completing data quality check, I used SQL to explore pricing patterns, listing volumes, and possible indicators of AirBnB demand across NYC neighborhoods.
+--
+-- Business Question 1: Which neighborhoods have the highest average listing prices?
+--
+-- Tribeca - average $490.64 - median difference $199.64
+-- Battery Park City - average 367.56 - median differnce $172.56
+-- Flatiron District - average $341.93 - median difference $116.93
+--
+-- SELECT 
+--  neighbourhood_group,
+--  neighbourhood,
+--  COUNT(*) AS total_listings,
+--  ROUND(AVG(price), 2) AS avg_price,
+--  APPROX_QUANTILES(price, 2)[OFFSET (1)] AS median_price,
+--  ROUND(AVG(price) - APPROX_QUANTILES(price, 2)[OFFSET (1)], 2) AS avg_median_difference
+-- FROM 
+--  `sixth-beaker-478016-f6.NYC_AIRBNB.NYC_AIRBNB_LISTINGS`
+-- WHERE
+--  price > 0 
+-- GROUP BY
+--  neighbourhood_group,
+--  neighbourhood
+-- HAVING 
+--  COUNT(*) > 20
+-- ORDER BY
+--  avg_price DESC;
+
+-- FINDINGS: The large gap bewtween average and median prices can indicate the high-priced outliers are inflating the neighborhood's average, and smaller
+-- gaps may suggest the average is more representative of typical listing prices.
+-- There are a few neighborhoods that stand out because they show top 50 average price, with over 1,000 listings, and the median difference much closer to the average.
+--
+--
 
 -- 
 
