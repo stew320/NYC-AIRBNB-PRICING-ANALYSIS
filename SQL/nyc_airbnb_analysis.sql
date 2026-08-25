@@ -121,6 +121,11 @@
 -- FROM top_50
 -- WHERE total_listings > 1000
 -- ORDER BY avg_price DESC;
+--
+-- Findings: Six neighborhoods within the top 50 by average price also had more than 1,000 listings.  These neighborhoods showed relatively 
+-- smaller gaps between their average and median prices compared with many of the highest-priced neighborhoods. The combination of high listing
+-- volume and a smaller average-to-median gap suggest that their high average prices are more representative of typical listings prices and are 
+-- less likely to be driven primarily by a small number of high-priced outliers.
 
 
 
