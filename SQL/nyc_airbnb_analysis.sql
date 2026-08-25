@@ -65,9 +65,9 @@
 --
 -- Business Question 1: Which neighborhoods have the highest average listing prices?
 --
--- Tribeca - average $490.64 - median difference $199.64
--- Battery Park City - average 367.56 - median differnce $172.56
--- Flatiron District - average $341.93 - median difference $116.93
+-- Tribeca - average $490.64 - median difference $199.64 - total listings 177
+-- Battery Park City - average 367.56 - median differnce $172.56 - total listings 70
+-- Flatiron District - average $341.93 - median difference $116.93 - total listings 80
 --
 -- SELECT 
 --  neighbourhood_group,
@@ -87,12 +87,14 @@
 --  COUNT(*) > 20
 -- ORDER BY
 --  avg_price DESC;
+--
+-- 1a) Neighborhoodsthat 
 
 -- FINDINGS: The large gap bewtween average and median prices can indicate the high-priced outliers are inflating the neighborhood's average, and smaller
 -- gaps may suggest the average is more representative of typical listing prices.
 -- There are a few neighborhoods that stand out because they show top 50 average price, with over 1,000 listings, and the median difference much closer to the average.
 --
---
+-- 
 
 -- 
 
