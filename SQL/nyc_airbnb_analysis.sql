@@ -98,6 +98,13 @@
 -- then identified those with more than 1,000 listings and compared their average and median prices to determine how representative the average price is of a 
 -- typical listing.
 --
+-- Midtown -         average $282.72 - avg-median difference $72.72 - total listings 1,545
+-- Chelsea -         average $249.74 - avg-median difference $50.74 - total listings 1,113
+-- Upper West Side - average $210.92 - avg-median difference $60.92 - total listings 1,971
+-- Hell's Kitchen -  average $204.79 - avg-median difference $36.79 - total listings 1,958
+-- Upper East Side - average $188.95 - avg-median difference $39.95 - total listings 1,798
+-- East Village -    average $186.08 - avg- median difference $36.08 - total listings 1,853
+--
 -- WITH top_50 AS (
 -- SELECT 
 --  neighbourhood_group,
