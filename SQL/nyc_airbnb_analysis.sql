@@ -88,14 +88,12 @@
 -- ORDER BY
 --  avg_price DESC;
 --
--- 
-
--- FINDINGS: The large gap bewtween average and median prices can indicate the high-priced outliers are inflating the neighborhood's average, and smaller
--- gaps may suggest the average is more representative of typical listing prices. Also, the volume of listings in top average price neighborhoods are
+-- FINDINGS: The large gap bewtween average and median prices can indicate that the high-priced outliers are inflating the neighborhood's average, and smaller
+-- gaps may suggest the average is more representative of typical listing prices. Also, the volume of listings in top average price neighborhoods have
 -- considerably less listings in comparison to other neighborhoods within the top average list. 
 
 -- To identify neighborhoods where high prices are supported by a larger number of listings, I narrowed the analysis to the top 50 neighborhoods by average price, 
--- then identified those with more than 1,000 listings and compared their average and median prices to determine how representative the average price is of a 
+-- identified those with more than 1,000 listings and compared their average and median prices to determine how representative the average price is of a 
 -- typical listing.
 --
 -- Midtown -         average $282.72 - avg-median difference $72.72 - total listings 1,545
@@ -103,7 +101,7 @@
 -- Upper West Side - average $210.92 - avg-median difference $60.92 - total listings 1,971
 -- Hell's Kitchen -  average $204.79 - avg-median difference $36.79 - total listings 1,958
 -- Upper East Side - average $188.95 - avg-median difference $39.95 - total listings 1,798
--- East Village -    average $186.08 - avg- median difference $36.08 - total listings 1,853
+-- East Village -    average $186.08 - avg-median difference $36.08 - total listings 1,853
 --
 -- WITH top_50 AS (
 -- SELECT 
@@ -129,7 +127,7 @@
 -- WHERE total_listings > 1000
 -- ORDER BY avg_price DESC;
 --
--- Findings: Six neighborhoods within the top 50 by average price also had more than 1,000 listings.  These neighborhoods showed relatively 
+-- Findings: Six neighborhoods within the top 50 by average price, had more than 1,000 listings.  These neighborhoods showed relatively 
 -- smaller gaps between their average and median prices compared with many of the highest-priced neighborhoods. The combination of high listing
 -- volume and a smaller average-to-median gap suggest that their high average prices are more representative of typical listings prices and are 
 -- less likely to be driven primarily by a small number of high-priced outliers.
@@ -167,7 +165,7 @@
 -- meaningful premiums between Entire home/apt and Private room listings, typically ranging from $80 - $140.  However, listing volume did not 
 -- show a clear relationship with the size of the price premium.
 --
--- To further examine the relationship with price premium and listing volume I calculated the correlation between them across the neighborhoods.
+-- To further examine the relationship with price premium and listing volume I calculated the correlation between the two variables across the neighborhoods.
 --
 -- WITH price_premium AS ( 
 --  SELECT neighbourhood_group, neighbourhood,
@@ -194,6 +192,47 @@
 -- Findings: The correlation between listing volume and price premium was 0.04, indicating almost no linear relationship between the two variables.
 -- This suggest that neighborhoods with higher listing volumes do not necessarily have larger or smaller price premiums between Entire home/apt and 
 -- private room listings.
+--
+-- Business Question 3: Which neighborhoods show the strongest signs of AirBnB demand based on listing activity and review frequency?
+--
+-- It is important to note the limitation of the dataset because it does not contain actual bookings, occupancy, or revenue.  We cannot
+-- directly calculate demand, so we will use reviews_per_month as a proxy for guest activity.
+-- 
+-- SELECT
+--  neighbourhood_group,
+--  neighbourhood,
+--  COUNT(*) AS total_listings,
+--  ROUND(AVG(reviews_per_month), 2) AS avg_reviews_per_month
+-- FROM
+--  `sixth-beaker-478016-f6.NYC_AIRBNB.NYC_AIRBNB_LISTINGS`
+-- WHERE reviews_per_month IS NOT NULL
+-- GROUP BY neighbourhood_group,
+--  neighbourhood
+-- HAVING COUNT(*) >= 20
+-- ORDER BY avg_reviews_per_month DESC;
+--
+-- Findings: After inspecting the query results, I visually assumed there was an inverse pattern. Neighborhoods with the highest average review
+-- frequency tend to have smaller listing volumes, while the neighborhoods with the largest volumes tend to have lower average review frequency.
+-- 
+-- As neighborhood listing volume increases, does average review frequency tend to decrease? I will see if there is correlation between the two variables.
+--
+-- WITH neighborhood_activity AS (
+--  SELECT
+--    neighbourhood_group,
+--    neighbourhood,
+--    COUNT(*) AS total_listings,
+--    AVG(reviews_per_month) AS avg_reviews_per_month
+--  FROM `sixth-beaker-478016-f6.NYC_AIRBNB.NYC_AIRBNB_LISTINGS`
+--  WHERE reviews_per_month IS NOT NULL
+--  GROUP BY neighbourhood_group, neighbourhood
+--  HAVING COUNT(*) >= 20 
+-- )
+--  SELECT
+--    ROUND(CORR(total_listings, avg_reviews_per_month), 3) AS listings_volume_review_corr
+--  FROM neighborhood_activity
+--
+-- Findings: Correlation between total listings with average reviews per month were -0.206, indicating a weak negative linear relationship between the two variables.
+-- This suggests that the relationship is not strong enough to determine that listing volume alone explains review frequency.
 
   
 
