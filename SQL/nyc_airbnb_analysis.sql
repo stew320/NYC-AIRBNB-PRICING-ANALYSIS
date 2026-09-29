@@ -25,7 +25,7 @@
 -- FROM 
 --  `sixth-beaker-478016-f6.NYC_AIRBNB.NYC_AIRBNB_LISTINGS`
 -- GROUP BY
---  id
+--  idb
 -- HAVING
 --  COUNT(*) > 1;
 --
