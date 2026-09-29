@@ -251,7 +251,13 @@ Dataset Overview
   had a correlation of -0.206, indicating only a weak negative relationship.
 
   LIMITATIONS
-  Review per month is a proxy for guest activity and does no directly measure booking or occupancy
+  Review per month is a proxy for guest activity and does no directly measure booking or occupancy.
+
+  Listing prices repreent advertised prices rather than realzied revenue.
+
+  Correalation does not establish causation.
+
+  Extreme prcies can affect neighborhood averages, which is why median prices were also examined.
 
   
 
