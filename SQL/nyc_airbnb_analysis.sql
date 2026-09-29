@@ -7,6 +7,8 @@
 --Analyze the NYC AirBnB market to identify pricing patterns, competitive positioning, market segment, and potential 
 --opportunities across neighborhoods and room types.
 
+Dataset Overview
+ Dataset contains 48,895 airbnb listings acros nyc five boro. Variables used in the analysis include neighborhood, room type, price etc. ALSO identify source of dataset.
 
 --SECTION 1: DATA EXPLORATION & QUALITY CHECKS USING SQL
 
@@ -233,6 +235,23 @@
 --
 -- Findings: Correlation between total listings with average reviews per month were -0.206, indicating a weak negative linear relationship between the two variables.
 -- This suggests that the relationship is not strong enough to determine that listing volume alone explains review frequency.
+
+  KEy insights
+
+  NYC AirBnb pricing varies substantially across neighborhoods, but the neighborhoods with the highest average prices often have relatively small listing volumes and large
+  differences between average and median prices, suggesting that high-priced listings can influence neighborhood averages.
+
+  Among higher-volume neighborhoods, areas such as Midtown, Chelsea, Upper West Side, Hell's Kitchen, Upper East Side, and East Village maintained comparatively 
+  high prices with smaller average-to-median gaps.
+
+  Entire-home listings generally commanded substantial premiums over private rooms, but the correlation between listing volume and price premium was only 0.04, indicating
+  essentially no linear relationship.
+
+  Reviews per month were used as a proxy for guest activity because booking and occupancy data were unavailable.  Listing volume and average reviews per month 
+  had a correlation of -0.206, indicating only a weak negative relationship.
+
+  LIMITATIONS
+  Review per month is a proxy for guest activity and does no directly measure booking or occupancy
 
   
 
