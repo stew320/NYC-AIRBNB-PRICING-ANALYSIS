@@ -1,19 +1,19 @@
 
---NYC AirBnB Market & Pricing Analysis
---Tool: Google BigQuery
+NYC AirBnB Market & Pricing Analysis
+Tool: Google BigQuery
 
 
 --PROJECT OBJECTIVE:
---Analyze the NYC AirBnB market to identify pricing patterns, competitive positioning, market segment, and potential 
---opportunities across neighborhoods and room types.
+Analyze the NYC AirBnB market to identify pricing patterns, competitive positioning, market segment, and potential 
+opportunities across neighborhoods and room types.
 
 Dataset Overview
  Dataset contains 48,895 airbnb listings acros nyc five boro. Variables used in the analysis include neighborhood, room type, price etc. ALSO identify source of dataset.
 
 --SECTION 1: DATA EXPLORATION & QUALITY CHECKS USING SQL
 
--- Total Listings: 48,895 - establishes size of dataset prior to any filtering.
---
+ Total Listings: 48,895 - establishes size of dataset prior to any filtering.
+
 -- SELECT 
 --   COUNT(*) AS total_listings
 -- FROM 
@@ -32,7 +32,7 @@ Dataset Overview
 --  COUNT(*) > 1;
 --
 --  Missing Values: 21 listings have missing host_name, 10,052 listings have missing reviews_per_month.
---
+
 -- SELECT 
 --  COUNTIF(host_name IS NULL) AS missing_host_names,
 --  COUNTIF(reviews_per_month IS NULL) AS missing_reviews_per_month
@@ -41,13 +41,13 @@ Dataset Overview
 --
 -- I compared the number of listings with 0 total reviews to the number of listings with a missing reviews_per_monnth value.
 -- Result: Both were 10,052 listings, suggesting that the missing monthly reviews are associated with listings that have not yet received any reviews.
---
+
 -- SELECT 
 --  COUNTIF(number_of_reviews = 0 ) AS zero_review_listings,
 --  COUNTIF(reviews_per_month IS NULL) AS missing_reviews_per_month
 -- FROM 
 --  `sixth-beaker-478016-f6.NYC_AIRBNB.NYC_AIRBNB_LISTINGS`;
---
+
 -- Price Quality Check: Checked price field for missing or zero-dollar values that could potentially distort pricing calculations.
 -- 11 listings have a price of $0.  These listings will be excluded when performing price related analysis.
 --
