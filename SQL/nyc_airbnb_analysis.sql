@@ -1,62 +1,62 @@
 
-NYC AirBnB Market & Pricing Analysis
-Tool: Google BigQuery
+-- NYC AirBnB Market & Pricing Analysis
+-- Tool: Google BigQuery
 
 
---PROJECT OBJECTIVE:
-Analyze the NYC AirBnB market to identify pricing patterns, competitive positioning, market segment, and potential 
-opportunities across neighborhoods and room types.
+-- PROJECT OBJECTIVE:
+-- Analyze the NYC AirBnB market to identify pricing patterns, competitive positioning, market segment, and potential 
+-- opportunities across neighborhoods and room types.
 
-Dataset Overview
- Dataset contains 48,895 airbnb listings acros nyc five boro. Variables used in the analysis include neighborhood, room type, price etc. ALSO identify source of dataset.
+-- Dataset Overview
+-- Dataset contains 48,895 airbnb listings acros nyc five boro. Variables used in the analysis include neighborhood, room type, price etc. ALSO identify source of dataset.
 
 --SECTION 1: DATA EXPLORATION & QUALITY CHECKS USING SQL
 
- Total Listings: 48,895 - establishes size of dataset prior to any filtering.
+-- Total Listings: 48,895 - establishes size of dataset prior to any filtering.
 
--- SELECT 
---   COUNT(*) AS total_listings
--- FROM 
---  `sixth-beaker-478016-f6.NYC_AIRBNB.NYC_AIRBNB_LISTINGS`;
---
--- Duplicate Listing IDs: No duplicate listing IDs were found.
---
--- SELECT 
---   id,
--- COUNT(*) AS duplicate_count
--- FROM 
---  `sixth-beaker-478016-f6.NYC_AIRBNB.NYC_AIRBNB_LISTINGS`
--- GROUP BY
---  idb
--- HAVING
---  COUNT(*) > 1;
---
---  Missing Values: 21 listings have missing host_name, 10,052 listings have missing reviews_per_month.
+SELECT 
+  COUNT(*) AS total_listings
+FROM 
+ `sixth-beaker-478016-f6.NYC_AIRBNB.NYC_AIRBNB_LISTINGS`;
 
--- SELECT 
---  COUNTIF(host_name IS NULL) AS missing_host_names,
---  COUNTIF(reviews_per_month IS NULL) AS missing_reviews_per_month
--- FROM 
---  `sixth-beaker-478016-f6.NYC_AIRBNB.NYC_AIRBNB_LISTINGS`;
---
+ Duplicate Listing IDs: No duplicate listing IDs were found.
+
+SELECT 
+  id,
+COUNT(*) AS duplicate_count
+FROM 
+ `sixth-beaker-478016-f6.NYC_AIRBNB.NYC_AIRBNB_LISTINGS`
+GROUP BY
+ idb
+HAVING
+ COUNT(*) > 1;
+
+-- Missing Values: 21 listings have missing host_name, 10,052 listings have missing reviews_per_month.
+
+SELECT 
+ COUNTIF(host_name IS NULL) AS missing_host_names,
+ COUNTIF(reviews_per_month IS NULL) AS missing_reviews_per_month
+FROM 
+ `sixth-beaker-478016-f6.NYC_AIRBNB.NYC_AIRBNB_LISTINGS`;
+
 -- I compared the number of listings with 0 total reviews to the number of listings with a missing reviews_per_monnth value.
 -- Result: Both were 10,052 listings, suggesting that the missing monthly reviews are associated with listings that have not yet received any reviews.
 
--- SELECT 
---  COUNTIF(number_of_reviews = 0 ) AS zero_review_listings,
---  COUNTIF(reviews_per_month IS NULL) AS missing_reviews_per_month
--- FROM 
---  `sixth-beaker-478016-f6.NYC_AIRBNB.NYC_AIRBNB_LISTINGS`;
+SELECT 
+ COUNTIF(number_of_reviews = 0 ) AS zero_review_listings,
+ COUNTIF(reviews_per_month IS NULL) AS missing_reviews_per_month
+FROM 
+ `sixth-beaker-478016-f6.NYC_AIRBNB.NYC_AIRBNB_LISTINGS`;
 
 -- Price Quality Check: Checked price field for missing or zero-dollar values that could potentially distort pricing calculations.
 -- 11 listings have a price of $0.  These listings will be excluded when performing price related analysis.
---
--- SELECT 
---  COUNTIF(price = 0 ) AS zero_price_listings,
---  COUNTIF(price IS NULL) AS missing_price_listings
--- FROM 
---  `sixth-beaker-478016-f6.NYC_AIRBNB.NYC_AIRBNB_LISTINGS`;
---
+
+SELECT 
+ COUNTIF(price = 0 ) AS zero_price_listings,
+ COUNTIF(price IS NULL) AS missing_price_listings
+FROM 
+ `sixth-beaker-478016-f6.NYC_AIRBNB.NYC_AIRBNB_LISTINGS`;
+
 -- Data Quality Summary
 -- The dataset contains 48,895 listings with no duplicate listing IDs. Main quality issues found were 21 missing host names,
 -- 10,052 missing monthly review values, and 11 zero-dollar listings.
@@ -64,31 +64,31 @@ Dataset Overview
 --
 -- SECTION 2: Business Analysis
 -- After completing data quality check, I used SQL to explore pricing patterns, listing volumes, and possible indicators of AirBnB demand across NYC neighborhoods.
---
+
 -- Business Question 1: Which neighborhoods have the highest average listing prices?
---
+
 -- Tribeca    ------   average $490.64 - avg-median difference $199.64 - total listings 177
 -- Battery Park City - average 367.56 - avg-median differnce $172.56 - total listings 70
 -- Flatiron District - average $341.93 - avg-median difference $116.93 - total listings 80
---
--- SELECT 
---  neighbourhood_group,
---  neighbourhood,
---  COUNT(*) AS total_listings,
---  ROUND(AVG(price), 2) AS avg_price,
---  APPROX_QUANTILES(price, 2)[OFFSET (1)] AS median_price,
---  ROUND(AVG(price) - APPROX_QUANTILES(price, 2)[OFFSET (1)], 2) AS avg_median_difference
--- FROM 
---  `sixth-beaker-478016-f6.NYC_AIRBNB.NYC_AIRBNB_LISTINGS`
--- WHERE
---  price > 0 
--- GROUP BY
---  neighbourhood_group,
---  neighbourhood
--- HAVING 
---  COUNT(*) > 20
--- ORDER BY
---  avg_price DESC;
+
+SELECT 
+ neighbourhood_group,
+ neighbourhood,
+ COUNT(*) AS total_listings,
+ ROUND(AVG(price), 2) AS avg_price,
+ APPROX_QUANTILES(price, 2)[OFFSET (1)] AS median_price,
+ ROUND(AVG(price) - APPROX_QUANTILES(price, 2)[OFFSET (1)], 2) AS avg_median_difference
+FROM 
+ `sixth-beaker-478016-f6.NYC_AIRBNB.NYC_AIRBNB_LISTINGS`
+WHERE
+ price > 0 
+GROUP BY
+ neighbourhood_group,
+ neighbourhood
+HAVING 
+ COUNT(*) > 20
+ORDER BY
+ avg_price DESC;
 --
 -- FINDINGS: The large gap bewtween average and median prices can indicate that the high-priced outliers are inflating the neighborhood's average, and smaller
 -- gaps may suggest the average is more representative of typical listing prices. Also, the volume of listings in top average price neighborhoods have
@@ -104,30 +104,30 @@ Dataset Overview
 -- Hell's Kitchen -  average $204.79 - avg-median difference $36.79 - total listings 1,958
 -- Upper East Side - average $188.95 - avg-median difference $39.95 - total listings 1,798
 -- East Village -    average $186.08 - avg-median difference $36.08 - total listings 1,853
---
--- WITH top_50 AS (
--- SELECT 
---  neighbourhood_group,
---  neighbourhood,
---  COUNT(*) AS total_listings,
---  ROUND(AVG(price), 2) AS avg_price,
---  APPROX_QUANTILES(price, 2)[OFFSET (1)] AS median_price,
---  ROUND(AVG(price) - APPROX_QUANTILES(price, 2)[OFFSET (1)], 2) AS avg_median_difference
--- FROM 
---  `sixth-beaker-478016-f6.NYC_AIRBNB.NYC_AIRBNB_LISTINGS`
--- WHERE
---  price > 0 
--- GROUP BY
---  neighbourhood_group,
---  neighbourhood
--- ORDER BY
---  avg_price DESC
--- LIMIT 50
--- )
--- SELECT *
--- FROM top_50
--- WHERE total_listings > 1000
--- ORDER BY avg_price DESC;
+
+WITH top_50 AS (
+SELECT 
+ neighbourhood_group,
+ neighbourhood,
+ COUNT(*) AS total_listings,
+ ROUND(AVG(price), 2) AS avg_price,
+ APPROX_QUANTILES(price, 2)[OFFSET (1)] AS median_price,
+ ROUND(AVG(price) - APPROX_QUANTILES(price, 2)[OFFSET (1)], 2) AS avg_median_difference
+FROM 
+ `sixth-beaker-478016-f6.NYC_AIRBNB.NYC_AIRBNB_LISTINGS`
+WHERE
+ price > 0 
+GROUP BY
+ neighbourhood_group,
+ neighbourhood
+ORDER BY
+ avg_price DESC
+LIMIT 50
+)
+SELECT *
+FROM top_50
+WHERE total_listings > 1000
+ORDER BY avg_price DESC;
 --
 -- Findings: Six neighborhoods within the top 50 by average price, had more than 1,000 listings.  These neighborhoods showed relatively 
 -- smaller gaps between their average and median prices compared with many of the highest-priced neighborhoods. The combination of high listing
@@ -136,61 +136,61 @@ Dataset Overview
 --
 -- Business Question 2: Which neighborhoods have the largest price premium for Entire home/apt listings compared with Private rooms, and how does
 -- listing volume affect the significance of that premium?
---
--- SELECT
---  neighbourhood_group,
---  neighbourhood,
 
---  ROUND(AVG(CASE WHEN room_type = 'Entire home/apt' THEN price END) , 2) 
---  AS avg_entire_home_price,
---  ROUND(AVG(CASE WHEN room_type = 'Private room' THEN price END) , 2) 
---  AS avg_private_room_price,
---  ROUND(AVG(CASE WHEN room_type = 'Entire home/apt' THEN price END) -
---  AVG(CASE WHEN room_type = 'Private room' THEN price END) , 2) 
---  AS price_premium,
---  COUNTIF(room_type = 'Entire home/apt') AS entire_home_listings,
---  COUNTIF(room_type = 'Private room') AS private_room_listings
---
--- FROM
---  `sixth-beaker-478016-f6.NYC_AIRBNB.NYC_AIRBNB_LISTINGS`
--- WHERE
---  price > 0
--- GROUP BY
---  neighbourhood_group,
---  neighbourhood
--- HAVING COUNTIF(room_type = 'Entire home/apt') >= 20
---  AND COUNTIF(room_type = 'Private room') >= 20
--- ORDER BY
---  price_premium DESC;
---
+SELECT
+ neighbourhood_group,
+ neighbourhood,
+
+ ROUND(AVG(CASE WHEN room_type = 'Entire home/apt' THEN price END) , 2) 
+ AS avg_entire_home_price,
+ ROUND(AVG(CASE WHEN room_type = 'Private room' THEN price END) , 2) 
+ AS avg_private_room_price,
+ ROUND(AVG(CASE WHEN room_type = 'Entire home/apt' THEN price END) -
+ AVG(CASE WHEN room_type = 'Private room' THEN price END) , 2) 
+ AS price_premium,
+ COUNTIF(room_type = 'Entire home/apt') AS entire_home_listings,
+ COUNTIF(room_type = 'Private room') AS private_room_listings
+
+FROM
+ `sixth-beaker-478016-f6.NYC_AIRBNB.NYC_AIRBNB_LISTINGS`
+WHERE
+ price > 0
+GROUP BY
+ neighbourhood_group,
+ neighbourhood
+HAVING COUNTIF(room_type = 'Entire home/apt') >= 20
+ AND COUNTIF(room_type = 'Private room') >= 20
+ORDER BY
+ price_premium DESC;
+
 -- Findings: Neighborhoods with the largest price premiums generally had lower listing volumes. Higher-volumed neighborhoods still showed 
 -- meaningful premiums between Entire home/apt and Private room listings, typically ranging from $80 - $140.  However, listing volume did not 
 -- show a clear relationship with the size of the price premium.
 --
 -- To further examine the relationship with price premium and listing volume I calculated the correlation between the two variables across the neighborhoods.
---
--- WITH price_premium AS ( 
---  SELECT neighbourhood_group, neighbourhood,
---  ROUND(AVG(CASE WHEN room_type = 'Entire home/apt' THEN price END), 2) AS avg_entire_home_price,
---  ROUND(AVG(CASE WHEN room_type = 'Private room' THEN price END), 2) AS avg_private_room_price,
---  ROUND (AVG(CASE WHEN room_type = 'Entire home/apt' THEN price END) - 
---  AVG(CASE WHEN room_type = 'Private room' THEN price END), 2) AS price_premium,
---  COUNTIF(room_type = 'Entire home/apt') AS entire_home_listings,
---  COUNTIF(room_type = 'Private room') AS private_room_listings
---
--- FROM `sixth-beaker-478016-f6.NYC_AIRBNB.NYC_AIRBNB_LISTINGS`
--- WHERE price > 0 
--- GROUP BY  neighbourhood_group,
---  neighbourhood
--- HAVING COUNTIF(room_type = 'Entire home/apt') >= 20
---  AND COUNTIF(room_type = 'Private room') >= 20)
---
--- SELECT 
---  ROUND(
---  CORR(entire_home_listings + private_room_listings, price_premium),3) 
---  AS listing_volume_price_premium_correlation
--- FROM price_premium AS pp;
---
+
+WITH price_premium AS ( 
+ SELECT neighbourhood_group, neighbourhood,
+ ROUND(AVG(CASE WHEN room_type = 'Entire home/apt' THEN price END), 2) AS avg_entire_home_price,
+ ROUND(AVG(CASE WHEN room_type = 'Private room' THEN price END), 2) AS avg_private_room_price,
+ ROUND (AVG(CASE WHEN room_type = 'Entire home/apt' THEN price END) - 
+ AVG(CASE WHEN room_type = 'Private room' THEN price END), 2) AS price_premium,
+ COUNTIF(room_type = 'Entire home/apt') AS entire_home_listings,
+ COUNTIF(room_type = 'Private room') AS private_room_listings
+
+FROM `sixth-beaker-478016-f6.NYC_AIRBNB.NYC_AIRBNB_LISTINGS`
+WHERE price > 0 
+GROUP BY  neighbourhood_group,
+ neighbourhood
+HAVING COUNTIF(room_type = 'Entire home/apt') >= 20
+ AND COUNTIF(room_type = 'Private room') >= 20)
+
+SELECT 
+ ROUND(
+ CORR(entire_home_listings + private_room_listings, price_premium),3) 
+ AS listing_volume_price_premium_correlation
+FROM price_premium AS pp;
+
 -- Findings: The correlation between listing volume and price premium was 0.04, indicating almost no linear relationship between the two variables.
 -- This suggest that neighborhoods with higher listing volumes do not necessarily have larger or smaller price premiums between Entire home/apt and 
 -- private room listings.
@@ -199,65 +199,66 @@ Dataset Overview
 --
 -- It is important to note the limitation of the dataset because it does not contain actual bookings, occupancy, or revenue.  We cannot
 -- directly calculate demand, so we will use reviews_per_month as a proxy for guest activity.
--- 
--- SELECT
---  neighbourhood_group,
---  neighbourhood,
---  COUNT(*) AS total_listings,
---  ROUND(AVG(reviews_per_month), 2) AS avg_reviews_per_month
--- FROM
---  `sixth-beaker-478016-f6.NYC_AIRBNB.NYC_AIRBNB_LISTINGS`
--- WHERE reviews_per_month IS NOT NULL
--- GROUP BY neighbourhood_group,
---  neighbourhood
--- HAVING COUNT(*) >= 20
--- ORDER BY avg_reviews_per_month DESC;
---
+
+SELECT
+ neighbourhood_group,
+ neighbourhood,
+ COUNT(*) AS total_listings,
+ ROUND(AVG(reviews_per_month), 2) AS avg_reviews_per_month
+FROM
+ `sixth-beaker-478016-f6.NYC_AIRBNB.NYC_AIRBNB_LISTINGS`
+WHERE reviews_per_month IS NOT NULL
+GROUP BY neighbourhood_group,
+ neighbourhood
+HAVING COUNT(*) >= 20
+ORDER BY avg_reviews_per_month DESC;
+
 -- Findings: After inspecting the query results, I visually assumed there was an inverse pattern. Neighborhoods with the highest average review
 -- frequency tend to have smaller listing volumes, while the neighborhoods with the largest volumes tend to have lower average review frequency.
--- 
+
 -- As neighborhood listing volume increases, does average review frequency tend to decrease? I will see if there is correlation between the two variables.
---
--- WITH neighborhood_activity AS (
---  SELECT
---    neighbourhood_group,
---    neighbourhood,
---    COUNT(*) AS total_listings,
---    AVG(reviews_per_month) AS avg_reviews_per_month
---  FROM `sixth-beaker-478016-f6.NYC_AIRBNB.NYC_AIRBNB_LISTINGS`
---  WHERE reviews_per_month IS NOT NULL
---  GROUP BY neighbourhood_group, neighbourhood
---  HAVING COUNT(*) >= 20 
--- )
---  SELECT
---    ROUND(CORR(total_listings, avg_reviews_per_month), 3) AS listings_volume_review_corr
---  FROM neighborhood_activity
---
+
+WITH neighborhood_activity AS (
+ SELECT
+   neighbourhood_group,
+   neighbourhood,
+   COUNT(*) AS total_listings,
+ AVG(reviews_per_month) AS avg_reviews_per_month
+ FROM `sixth-beaker-478016-f6.NYC_AIRBNB.NYC_AIRBNB_LISTINGS`
+ WHERE reviews_per_month IS NOT NULL
+ GROUP BY neighbourhood_group, neighbourhood
+ HAVING COUNT(*) >= 20 
+)
+ SELECT
+   ROUND(CORR(total_listings, avg_reviews_per_month), 3) AS listings_volume_review_corr
+ FROM neighborhood_activity
+
 -- Findings: Correlation between total listings with average reviews per month were -0.206, indicating a weak negative linear relationship between the two variables.
 -- This suggests that the relationship is not strong enough to determine that listing volume alone explains review frequency.
 
-  KEy insights
+-- Key Insights
 
-  NYC AirBnb pricing varies substantially across neighborhoods, but the neighborhoods with the highest average prices often have relatively small listing volumes and large
-  differences between average and median prices, suggesting that high-priced listings can influence neighborhood averages.
+-- NYC AirBnb pricing varies substantially across neighborhoods, but the neighborhoods with the highest average prices often have relatively small listing volumes and large
+-- differences between average and median prices, suggesting that high-priced listings can influence neighborhood averages.
 
-  Among higher-volume neighborhoods, areas such as Midtown, Chelsea, Upper West Side, Hell's Kitchen, Upper East Side, and East Village maintained comparatively 
-  high prices with smaller average-to-median gaps.
+-- Among higher-volume neighborhoods, areas such as Midtown, Chelsea, Upper West Side, Hell's Kitchen, Upper East Side, and East Village maintained comparatively 
+-- high prices with smaller average-to-median gaps.
 
-  Entire-home listings generally commanded substantial premiums over private rooms, but the correlation between listing volume and price premium was only 0.04, indicating
-  essentially no linear relationship.
+-- Entire-home listings generally commanded substantial premiums over private rooms, but the correlation between listing volume and price premium was only 0.04, indicating
+-- essentially no linear relationship.
 
-  Reviews per month were used as a proxy for guest activity because booking and occupancy data were unavailable.  Listing volume and average reviews per month 
-  had a correlation of -0.206, indicating only a weak negative relationship.
+-- Reviews per month were used as a proxy for guest activity because booking and occupancy data were unavailable.  Listing volume and average reviews per month 
+-- had a correlation of -0.206, indicating only a weak negative relationship.
 
-  LIMITATIONS
-  Review per month is a proxy for guest activity and does no directly measure booking or occupancy.
+-- LIMITATIONS
+ 
+-- Review per month is a proxy for guest activity and does no directly measure booking or occupancy.
 
-  Listing prices repreent advertised prices rather than realzied revenue.
+-- Listing prices repreent advertised prices rather than realzied revenue.
 
-  Correalation does not establish causation.
+-- Correalation does not establish causation.
 
-  Extreme prcies can affect neighborhood averages, which is why median prices were also examined.
+-- Extreme prcies can affect neighborhood averages, which is why median prices were also examined.
 
   
 
