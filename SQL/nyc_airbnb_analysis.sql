@@ -89,7 +89,7 @@ HAVING
  COUNT(*) > 20
 ORDER BY
  avg_price DESC;
---
+
 -- FINDINGS: The large gap bewtween average and median prices can indicate that the high-priced outliers are inflating the neighborhood's average, and smaller
 -- gaps may suggest the average is more representative of typical listing prices. Also, the volume of listings in top average price neighborhoods have
 -- considerably less listings in comparison to other neighborhoods within the top average list. 
@@ -97,7 +97,7 @@ ORDER BY
 -- To identify neighborhoods where high prices are supported by a larger number of listings, I narrowed the analysis to the top 50 neighborhoods by average price, 
 -- identified those with more than 1,000 listings and compared their average and median prices to determine how representative the average price is of a 
 -- typical listing.
---
+
 -- Midtown -         average $282.72 - avg-median difference $72.72 - total listings 1,545
 -- Chelsea -         average $249.74 - avg-median difference $50.74 - total listings 1,113
 -- Upper West Side - average $210.92 - avg-median difference $60.92 - total listings 1,971
@@ -128,12 +128,12 @@ SELECT *
 FROM top_50
 WHERE total_listings > 1000
 ORDER BY avg_price DESC;
---
+
 -- Findings: Six neighborhoods within the top 50 by average price, had more than 1,000 listings.  These neighborhoods showed relatively 
 -- smaller gaps between their average and median prices compared with many of the highest-priced neighborhoods. The combination of high listing
 -- volume and a smaller average-to-median gap suggest that their high average prices are more representative of typical listings prices and are 
 -- less likely to be driven primarily by a small number of high-priced outliers.
---
+
 -- Business Question 2: Which neighborhoods have the largest price premium for Entire home/apt listings compared with Private rooms, and how does
 -- listing volume affect the significance of that premium?
 
@@ -166,7 +166,7 @@ ORDER BY
 -- Findings: Neighborhoods with the largest price premiums generally had lower listing volumes. Higher-volumed neighborhoods still showed 
 -- meaningful premiums between Entire home/apt and Private room listings, typically ranging from $80 - $140.  However, listing volume did not 
 -- show a clear relationship with the size of the price premium.
---
+
 -- To further examine the relationship with price premium and listing volume I calculated the correlation between the two variables across the neighborhoods.
 
 WITH price_premium AS ( 
@@ -194,9 +194,9 @@ FROM price_premium AS pp;
 -- Findings: The correlation between listing volume and price premium was 0.04, indicating almost no linear relationship between the two variables.
 -- This suggest that neighborhoods with higher listing volumes do not necessarily have larger or smaller price premiums between Entire home/apt and 
 -- private room listings.
---
+
 -- Business Question 3: Which neighborhoods show the strongest signs of AirBnB demand based on listing activity and review frequency?
---
+
 -- It is important to note the limitation of the dataset because it does not contain actual bookings, occupancy, or revenue.  We cannot
 -- directly calculate demand, so we will use reviews_per_month as a proxy for guest activity.
 
