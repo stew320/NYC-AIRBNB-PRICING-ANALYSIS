@@ -99,7 +99,7 @@ Entire homes/apartments generally commanded higher prices than private rooms, bu
 
 Tbe finding suggest that hosts should consider neighborhood-specific pricing patterns rather than assuming higher listing volume atuomatically corresponds to larger price premiums.
 
-[View SQL Analysis](SQL/nyc_airbnb_analysis.sql)
+[View SQL Analysis](SQL/nyc_airbnb_analysis.sql#L140-L164)
 
 
 
