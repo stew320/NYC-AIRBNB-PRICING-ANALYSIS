@@ -76,8 +76,30 @@ Listings with a price of 0 were identified as invalid for pricing comparisons an
 
 These checks helped establish a more reliable foundation for the subsequent neighborhood and room-type comparisons.
 
+## Business Question 1: Entire Home vs. Private Room Pricing Premium
 
+### Objective
+Determine how much more entire home/apartments cost compared with private rooms within the same NYC neighborhoods, and investigate whether listing volume is associated with the size of that premium.
 
+### Methodology 
+Using Google BigQuery, I calculated average listing prices for entire homes/apartments and private rooms within each neighborhood.
+
+- Excluded listings with prices of $0.
+- Required at least 20 listings of each room type per neighborhood.
+- Calculated the dollar difference between average entire-home and private-room prices.
+- Examined the relationship between listing volume and price premiums usings correlation analysis.
+
+### Key Findings
+- Neighborhoods with the largest price premiums generally had lower listings volumes.
+- Higher-volume neighborhoods still demonstrated meaningful price premiums, typically ranging from $80 to $140.
+- Listing volume did not show a clear relationship with the size of the price premium.
+
+### Business Interpretation
+Entire homes/apartments generally commanded higher prices than private rooms, but the size of the premium varied across neighborhoods.
+
+Tbe finding suggest that hosts should consider neighborhood-specific pricing patterns rather than assuming higher listing volume atuomatically corresponds to larger price premiums.
+
+[View SQL Analysis](SQL/nyc_airbnb_analysis.sql)
 
 
 
