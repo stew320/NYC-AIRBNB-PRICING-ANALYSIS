@@ -56,7 +56,25 @@ All SQL queries used for data exploration, data quality checks, and business ana
 
 [View Full SQL Analysis](SQL/nyc_airbnb_analysis.sql)
   
+## Data Exploration & Quality Checks
 
+Before conducting the business analysis, I used Google BigQuery to examine the dataset's structure, completeness, and reliability.
+
+### Key Findings
+
+- Total lisitings: 48,895
+- Duplicate listing IDs: 0
+- Missing host names: 21
+- Missing reviews per month: 10,052
+- Listings with a price of $0: 11
+
+### Data Quality Considerations
+
+Missing review activity was evaluated carefully because listings without recorded reviews should not automatically be interpreted as having no demand.
+
+Listings with a price of 0 were identified as invalid for pricing comparisons and excluded from pricing analysis.
+
+These checks helped establish a more reliable foundation for the subsequent neighborhood and room-type comparisons.
 
 
 
