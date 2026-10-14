@@ -19,7 +19,7 @@ SELECT
 FROM 
  `sixth-beaker-478016-f6.NYC_AIRBNB.NYC_AIRBNB_LISTINGS`;
 
- Duplicate Listing IDs: No duplicate listing IDs were found.
+-- Duplicate Listing IDs: No duplicate listing IDs were found.
 
 SELECT 
   id,
