@@ -105,7 +105,8 @@ Tbe finding suggest that hosts should consider neighborhood-specific pricing pat
 
 [View SQL Analysis](SQL/nyc_airbnb_analysis.sql#L140-L164) - Calculates the average price difference between entire homes/apartments and private rooms, including listing counts.
 
-2. Listing Volume & Price Premium Correlation 172-192
+2. Listing Volume & Price Premium Correlation
+
 [View Correlation Query](SQL/nyc_airbnb_analsis.sql#L172-L192) - Measures the relationship between listing volumes and price premium across neighborhoods.
 
 
