@@ -93,6 +93,7 @@ Using Google BigQuery, I calculated average listing prices for entire homes/apar
 - Neighborhoods with the largest price premiums generally had lower listings volumes.
 - Higher-volume neighborhoods still demonstrated meaningful price premiums, typically ranging from $80 to $140.
 - Listing volume did not show a clear relationship with the size of the price premium.
+- The correlation between listing volume and price premium was approximately 0.04, indicating virtually no linear relationship between the two variables.
 
 ### Business Interpretation
 Entire homes/apartments generally commanded higher prices than private rooms, but the size of the premium varied across neighborhoods.
