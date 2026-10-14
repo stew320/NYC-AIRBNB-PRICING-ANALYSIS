@@ -49,3 +49,22 @@ Data Cleaning--Exploratory Analysis--Market Segmentation--Pricing Analysis--Comp
 
 
 SQL AND TABLEAU ANALYSIS OF NYC LISTINGS
+
+## SQL Analysis
+
+All SQL queries used for data exploration, data quality checks, and business analysis are stored in a separate SQL file.
+
+[View Full SQL Analysis](SQL/nyc_airbnb_analysis.sql)
+  
+
+
+
+
+
+
+
+
+
+
+
+
