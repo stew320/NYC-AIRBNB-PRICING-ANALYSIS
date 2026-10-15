@@ -89,8 +89,34 @@ Using Google BigQuery, I analyzed neighborhood-level Airbnb pricing by:
 - Including total listing counts to provide context for neighborhood sample sizes.
 - Applying minimum listing threshold of 20 listings per neighborhood.
 
+Additional Analysis: High-Volume Neighborhoods:
+To evaluate whether average prices were representative of neighborhoods with substantial listing activity, I conducted a secondary analysis:
+- Identified the top 50 neighborhoods ranked by average listing price.
+- Selected neighborhoods within that group containing more than 1,000 listings.
+- Compared average and median listing prices within those neighborhoods.
+- Examined the differences between these measures to assess how well average price represented typical listing prices.
+
 ## Key Findings
-The following Manhattan neighborhoods demonstrated some of the highest average listing prices:
+
+Average vs. Median Price Comparison
+
+Large differences between average and median listing prices may indicate that high-priced outliers are pulling neighborhood averages upward.
+
+Smaller differences suggest that average prices may be more representative of typical listing prices.
+
+High-Volume Neighborhood Analysis
+
+To extend the initial pricing analysis, I examined neighborhoods with more than 1,000 listings among the top 50 neighborhoods ranked by average price.
+
+This comparison provided additional context for interpreting average and median prices in neighborhoods with larger listing inventories.
+
+## Business Interpretation
+
+The analysis highlights the importance of considering both pricing distributions and listing volume when evaluating Airbnb markets.
+
+Neighborhoods with high average prices may contain unusually expensive properties that influence overall average.  Comparing median prices helps provide a more representative benchmark for typical listing costs.
+
+Examining neighborhoods with larger listing inventories add context by showing how these pricing patterns appear in more established, higher-volume markets.
 
 
 ## Business Question 2: Entire Home vs. Private Room Pricing Premium
@@ -100,7 +126,7 @@ Determine how much more entire home/apartments cost compared with private rooms 
 
 ### Methodology 
 Using Google BigQuery, I calculated average listing prices for entire homes/apartments and private rooms within each neighborhood.
-
+- 
 - Excluded listings with prices of $0.
 - Required at least 20 listings of each room type per neighborhood.
 - Calculated the dollar difference between average entire-home and private-room prices.
