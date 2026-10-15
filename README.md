@@ -54,7 +54,7 @@ SQL AND TABLEAU ANALYSIS OF NYC LISTINGS
 
 All SQL queries used for data exploration, data quality checks, and business analysis are stored in a separate SQL file.
 
-[View Full SQL Analysis](SQL/nyc_airbnb_analysis.sql#L74-L91)
+[View Full SQL Analysis](SQL/nyc_airbnb_analysis.sql)
   
 ## Data Exploration & Quality Checks
 
