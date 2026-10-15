@@ -11,8 +11,8 @@ The goal of this project is to move beyond basic listing counts and averages and
 
 ### Business Questions
 
-1) How much of a pricing premium do entire homes/apartments command over private rooms within the same neighborhood?
-2) Within high volume neighborhoods, which listings are priced substantially above or below their local market averages?
+1) Which NYC neighborhoods have the highest average Airbnb listing prices, and how do median prices compare?
+2) How much of a pricing premium do entire homes/apartments command over private rooms within the same neighborhood?
 3) Is there a relationship between minimum-night requirements and listing prices, and does this relationship differ across neighborhoods or room types?
 4) Are certain neighborhoods more concentrated with multi-listing hosts, and how do their pricing patterns compare with a single-listing hosts?
 5) How can NYC AirBnB listings be segmented into budget, mid-market, premium, and luxury categories, and where are these different market segments concentrated?
@@ -76,7 +76,24 @@ Listings with a price of 0 were identified as invalid for pricing comparisons an
 
 These checks helped establish a more reliable foundation for the subsequent neighborhood and room-type comparisons.
 
-## Business Question 1: Entire Home vs. Private Room Pricing Premium
+## Business Question 1: Which NYC Neighborhoods Have the Highest Average Listing Prices, and How Do Median Prices Compare?
+
+## Objective
+Identify neighborhoods with the highest average Airbnb listing prices and compare average prices with median prices to better understand neighborhood pricing patterns and the influence of high-priced lsitings.
+
+## Methodoly
+Using Google BigQuery, I analyzed neighborhood-level Airbnb pricing by:
+- Excluding listings with prices of $0.
+- Calculating average listings prices by neighborhood.
+- Calculating median listing prices to provide a comparison with the average.
+- Including total listing counts to provide context for neighborhood sample sizes.
+- Applying minimum listing threshold of 20 listings per neighborhood.
+
+## Key Findings
+The following Manhattan neighborhoods demonstrated some of the highest average listing prices:
+
+
+## Business Question 2: Entire Home vs. Private Room Pricing Premium
 
 ### Objective
 Determine how much more entire home/apartments cost compared with private rooms within the same NYC neighborhoods, and investigate whether listing volume is associated with the size of that premium.
