@@ -119,8 +119,7 @@ Neighborhoods with high average prices may contain unusually expensive propertie
 Examining neighborhoods with larger listing inventories add context by showing how these pricing patterns appear in more established, higher-volume markets.
 
 ## Supporting SQL Analysis
-[Average vs. Median Comparison](SQL/nyc_airbnb_pricing_analysis.sql)
-
+[Average vs. Median Comparison](SQL/nyc_airbnb_pricing_analysis.sql#L74-L91)
 
 ## Business Question 2: Entire Home vs. Private Room Pricing Premium
 
