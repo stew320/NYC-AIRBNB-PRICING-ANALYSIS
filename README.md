@@ -121,6 +121,8 @@ Examining neighborhoods with larger listing inventories add context by showing h
 ## Supporting SQL Analysis
 [Average vs. Median Comparison](SQL/nyc_airbnb_analysis.sql#L74-L91)
 
+[High Listing Volume and Average Query](SQL/nyc_airbnb_analysis.sql)
+
 ## Business Question 2: Entire Home vs. Private Room Pricing Premium
 
 ### Objective
