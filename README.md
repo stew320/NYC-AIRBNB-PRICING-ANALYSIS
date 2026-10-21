@@ -137,9 +137,9 @@ These smaller differences suggest that the average listing prices may provide a 
 
 ## Business Interpretation
 
--Average vs Median price: Neighborhoods with high average prices may contain unusually expensive properties that influence overall average.  Comparing median prices helps provide a more representative benchmark for typical listing costs.
+Average vs Median price: Neighborhoods with high average prices may contain unusually expensive properties that influence the overall average. Comparing median prices help provide a more representative benchmark for typical listing costs, allowing host and investors to make more informed pricing decisions. 
 
--High-Volume Neighborhood Analysis: Examining neighborhoods with larger listing inventories add context by showing how these pricing patterns appear in more established, higher-volume markets.
+High-Volume Neighborhood Analysis: East Village and Hell's Kitchen demonstrated relatively small differences between average and median listing prices despite having over 1,800 listings each. This suggests that average prices in these neighborhoods may be more representative of typical listing costs, making them potentially useful benchmarks for hosts evaluating competitive pricing.
 
 ## Supporting SQL Analysis
 [Average vs. Median Comparison](SQL/nyc_airbnb_analysis.sql#L74-L91)
