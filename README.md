@@ -115,6 +115,8 @@ Smaller differences suggest that average prices may be more representative of ty
 
 High-Volume Neighborhood Analysis
 
+|
+
 
 To extend the initial pricing analysis, I examined neighborhoods with more than 1,000 listings among the top 50 neighborhoods ranked by average price.
 
