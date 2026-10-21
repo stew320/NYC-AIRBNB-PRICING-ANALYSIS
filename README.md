@@ -156,7 +156,7 @@ Using Google BigQuery, I calculated average listing prices for entire homes/apar
 - 
 - Excluded listings with prices of $0.
 - Required at least 20 listings of each room type per neighborhood.
-- Calculated the dollar difference between average entire-home and private-room prices.
+- Calculated the pricing premium by subtracting the average private-room price from the average entire-home/apartment price.
 - Examined the relationship between listing volume and price premiums usings correlation analysis.
 
 ### Key Findings
