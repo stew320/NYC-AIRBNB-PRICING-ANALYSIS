@@ -160,10 +160,19 @@ Using Google BigQuery, I calculated average listing prices for entire homes/apar
 - Examined the relationship between listing volume and price premiums usings correlation analysis.
 
 ### Key Findings
-- Neighborhoods with the largest price premiums generally had lower listings volumes.
-- Higher-volume neighborhoods still demonstrated meaningful price premiums, typically ranging from $80 to $140.
-- Listing volume did not show a clear relationship with the size of the price premium.
-- The correlation between listing volume and price premium was approximately 0.04, indicating virtually no linear relationship between the two variables.
+
+1. introduce initial comparison of entire home vs private room premiums
+2. show the table with neighborhoods that have highest premiums
+3. add short paragraph connecting those findings to question 1.  avg price may be influenced by a few extremley high listings.
+4. introduce secondary analysis comparing average based and median based premiums
+
+Observation and Further Investigation 
+Battery Park City, Tribeca, and SoHo appeared among the neighborhoods with the highest entire-home versus private-room pricing premiums. These same neighborhoods were also identified in Business Question 1 as having elevated listing prices relative to their medians.
+
+This overlap raised an additional analytical question: Could unusually expensive listings be inflating the calculated pricing premiums?
+
+To investigate, I compared average-based pricing premiums with median-based pricing premiums to determine whether the initial results accurately reflected typical price differences between entire homes and private rooms.
+
 
 ### Business Interpretation
 Entire homes/apartments generally commanded higher prices than private rooms, but the size of the premium varied across neighborhoods.
