@@ -101,12 +101,13 @@ To evaluate whether average prices were representative of neighborhoods with sub
 Average vs. Median Price Comparison
 -The analysis revealed notable differences between average and median listing prices in several high-priced NYC neighborhoods.
 
-Neighborhood        Average      Median      Difference
--Tribeca            $491         $291        $200
--Battery Park City  $368         $195        $173
--Flatiron District  $342         $225        $117
--NoHo               $296         $250        $46
--SoHo               $287         $195        $92
+|  Neighborhood  | Average Price  |  Median Price  |  Difference  |
+| ---| ---: | ---: | ---:|
+|  Tribeca  |  $491  |  $291  |  $200|
+|  Battery Park City  |  $368  |  $195  |  $173  |
+|  Flatiron District  |  $342  |  $225  |  $117  |
+|  NoHo  |  $296  |  $250  |  $46  |
+|  SoHo  |  $287  |  $195  |  $92  |
 
 Large differences between average and median listing prices may indicate that high-priced outliers are pulling neighborhood averages upward.
 
