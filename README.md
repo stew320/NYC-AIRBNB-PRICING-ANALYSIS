@@ -126,10 +126,10 @@ High-Volume Neighborhood Analysis
 | ---| ---: | ---: | ---: |
 |  Midtown  |  $283  |  $73  |  1,545  |
 |  Chelsea  |  $250  |  $51  |  1,113  |
-|  Upper West Side  |  $61  |  1,971  |
-|  Hell's Kitchen  |  $37    |  1,958  |
-|  Upper East Side  |  $40  |  1,798  |
-|  East Village  |  $36  |  1,853  |
+|  Upper West Side  |  $211 |  $61  |  1,971  |
+|  Hell's Kitchen  |  $205    |  $37  |  1,958  |
+|  Upper East Side  |  $189  |  $40  |  1,798  |
+|  East Village  |  $186  |  $36  |  1,853  |
 
 To extend the initial pricing analysis, I examined neighborhoods with more than 1,000 listings among the top 50 neighborhoods ranked by average price.
 
