@@ -123,8 +123,13 @@ High-Volume Neighborhood Analysis
 -- East Village -    average $186.08 - avg-median difference $36.08 - total listings 1,853
 
 |  Neighborhood  |  Average Price  | Avg-Median Difference  |  Total Listings |
-
-
+| ---| ---: | ---: | ---: |
+|  Midtown  |  $283  |  $73  |  1,545  |
+|  Chelsea  |  $250  |  $51  |  1,113  |
+|  Upper West Side  |  $61  |  1,971  |
+|  Hell's Kitchen  |  $37    |  1,958  |
+|  Upper East Side  |  $40  |  1,798  |
+|  East Village  |  $36  |  1,853  |
 
 To extend the initial pricing analysis, I examined neighborhoods with more than 1,000 listings among the top 50 neighborhoods ranked by average price.
 
