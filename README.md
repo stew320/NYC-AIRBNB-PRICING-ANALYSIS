@@ -84,7 +84,7 @@ Identify neighborhoods with the highest average Airbnb listing prices and compar
 ## Methodoly
 Using Google BigQuery, I analyzed neighborhood-level Airbnb pricing by:
 - Excluding listings with prices of $0.
-- Calculating average listings prices by neighborhood.
+- Calculating average listing prices by neighborhood.
 - Calculating median listing prices to provide a comparison with the average.
 - Including total listing counts to provide context for neighborhood sample sizes.
 - Applying minimum listing threshold of 20 listings per neighborhood.
@@ -99,6 +99,14 @@ To evaluate whether average prices were representative of neighborhoods with sub
 ## Key Findings
 
 Average vs. Median Price Comparison
+-The analysis revealed notable differences between average and median listing prices in several high-priced NYC neighborhoods.
+
+Neighborhood        Average      Median      Difference
+-Tribeca            $491         $291        $200
+-Battery Park City  $368         $195        $173
+-Flatiron District  $342         $225        $117
+-NoHo               $296         $250        $46
+-SoHo               $287         $195        $92
 
 Large differences between average and median listing prices may indicate that high-priced outliers are pulling neighborhood averages upward.
 
@@ -106,17 +114,16 @@ Smaller differences suggest that average prices may be more representative of ty
 
 High-Volume Neighborhood Analysis
 
+
 To extend the initial pricing analysis, I examined neighborhoods with more than 1,000 listings among the top 50 neighborhoods ranked by average price.
 
 This comparison provided additional context for interpreting average and median prices in neighborhoods with larger listing inventories.
 
 ## Business Interpretation
 
-The analysis highlights the importance of considering both pricing distributions and listing volume when evaluating Airbnb markets.
+-Average vs Median price: Neighborhoods with high average prices may contain unusually expensive properties that influence overall average.  Comparing median prices helps provide a more representative benchmark for typical listing costs.
 
-Neighborhoods with high average prices may contain unusually expensive properties that influence overall average.  Comparing median prices helps provide a more representative benchmark for typical listing costs.
-
-Examining neighborhoods with larger listing inventories add context by showing how these pricing patterns appear in more established, higher-volume markets.
+-High-Volume Neighborhood Analysis: Examining neighborhoods with larger listing inventories add context by showing how these pricing patterns appear in more established, higher-volume markets.
 
 ## Supporting SQL Analysis
 [Average vs. Median Comparison](SQL/nyc_airbnb_analysis.sql#L74-L91)
