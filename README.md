@@ -99,7 +99,8 @@ To evaluate whether average prices were representative of neighborhoods with sub
 ## Key Findings
 
 Average vs. Median Price Comparison
--The analysis revealed notable differences between average and median listing prices in several high-priced NYC neighborhoods.
+
+To evaluate pricing patterns among NYC's highest-average-price neighborhoods, I compared average listing prices, the differences between average and median prices, and total listing counts.  This comparison helps identify where average prices may not accurately represent typical listing prices.
 
 |  Neighborhood  | Average Price  |   Avg-Median Difference  |  Total Listings  |
 | ---| ---: | ---: | ---:|
@@ -109,11 +110,17 @@ Average vs. Median Price Comparison
 |  NoHo  |  $296  |  $46  |  78  |
 |  SoHo  |  $287  |  $92  |  358  |  
 
-Large differences between average and median listing prices may indicate that high-priced outliers are pulling neighborhood averages upward.
+Tribeca recorded the largest average-to-median price difference at $200, followed by Battery Park City at $173 and Flatiron District at $117.
 
-Smaller differences suggest that average prices may be more representative of typical listing prices.
+NoHo and Soho showed smaller differences of $46 and $92, respectively, demonstrating that not all neighborhoods with high average prices exhibit equally large gaps between their average and median prices.
+
+Listing counts also varied, ranging from 70 in Battery Park City to 358 in SoHo.
 
 High Listing-Volume Neighborhood Analysis
+
+To extend the initial pricing analysis, I examined neighborhoods with more than 1,000 listings among the top 50 neighborhoods ranked by average price.
+
+This comparison evaluates average-to-median price differences in neighborhoods with larger listing inventories.
 
 |  Neighborhood  |  Average Price  | Avg-Median Difference  |  Total Listings |
 | ---| ---: | ---: | ---: |
@@ -124,9 +131,9 @@ High Listing-Volume Neighborhood Analysis
 |  Upper East Side  |  $189  |  $40  |  1,798  |
 |  East Village  |  $186  |  $36  |  1,853  |
 
-To extend the initial pricing analysis, I examined neighborhoods with more than 1,000 listings among the top 50 neighborhoods ranked by average price.
+Among the high-volume neighborhoods, East Village and Hell's Kitchen recorded the smallest average-to-median price differences at $36 and $37, respectively, with each neighborhood containing over 1,800 listings.
 
-This comparison provided additional context for interpreting average and median prices in neighborhoods with larger listing inventories.
+These smaller differences suggest that the average listing prices may provide a more representative estimate of typical listing prices in these neighborhoods compared with neighborhoods exhibiting larger gaps.
 
 ## Business Interpretation
 
