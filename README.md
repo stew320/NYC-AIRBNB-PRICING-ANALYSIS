@@ -113,14 +113,7 @@ Large differences between average and median listing prices may indicate that hi
 
 Smaller differences suggest that average prices may be more representative of typical listing prices.
 
-High-Volume Neighborhood Analysis
-
--- Midtown -         average $282.72 - avg-median difference $72.72 - total listings 1,545
--- Chelsea -         average $249.74 - avg-median difference $50.74 - total listings 1,113
--- Upper West Side - average $210.92 - avg-median difference $60.92 - total listings 1,971
--- Hell's Kitchen -  average $204.79 - avg-median difference $36.79 - total listings 1,958
--- Upper East Side - average $188.95 - avg-median difference $39.95 - total listings 1,798
--- East Village -    average $186.08 - avg-median difference $36.08 - total listings 1,853
+High Listing-Volume Neighborhood Analysis
 
 |  Neighborhood  |  Average Price  | Avg-Median Difference  |  Total Listings |
 | ---| ---: | ---: | ---: |
