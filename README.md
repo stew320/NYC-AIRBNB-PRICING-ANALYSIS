@@ -181,11 +181,11 @@ Top result was Brighton Beach, but it seemed off, explaination after table.
 
 |  Neighborhood  | Avg Price Premium  |   Median Price Premium  |  Dollar Difference  |  Premium Difference %  |
 | ---| ---: | ---: | ---:| ---:|
-|  Battery Park City  |
-|  Tribeca  |
-|  SoHo  |
-|  Little Italy  |
-|  Nolita  |
+|  Battery Park City  |  $383  |  $125  |  $258  |  67%  |
+|  Tribeca  |  $371  |  $210  |  $161  |  43%  |
+|  SoHo  |  $241  |  $144  |  $97  |  40%  |
+|  Little Italy  |  $195  |  $94  |  $101  |  52%  |
+|  Nolita  |  $181  |  $125  |  $56  |  31%  |
 
 
 ### Business Interpretation
