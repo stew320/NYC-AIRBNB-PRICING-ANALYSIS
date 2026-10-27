@@ -152,19 +152,22 @@ High-Volume Neighborhood Analysis: East Village and Hell's Kitchen demonstrated 
 Identify neighborhoods with the largest room-type price gaps and check whether those findings hold when using medians instead of averages.
 
 ### Methodology 
-Using Google BigQuery, I calculated average listing prices for entire homes/apartments and private rooms within each neighborhood.
-- 
-- Excluded listings with prices of $0.
-- Required at least 20 listings of each room type per neighborhood.
-- Calculated the pricing premium by subtracting the average private-room price from the average entire-home/apartment price.
-- Examined the relationship between listing volume and price premiums usings correlation analysis.
+Calculate the average entire-home price minus the average private-room price for each neighborhood. 
+Repeat using median prices, then compare neighborhood rankings and premium amomunts.
+Include listing counts for both room types to provide context.
 
 ### Key Findings
+Price Premiums based on average prices by room type
 
-1. introduce initial comparison of entire home vs private room premiums
-2. show the table with neighborhoods that have highest premiums
-3. add short paragraph connecting those findings to question 1.  avg price may be influenced by a few extremley high listings.
-4. introduce secondary analysis comparing average based and median based premiums
+|  Neighborhood  | Entire Home Avg  |   Private Room Avg  |  Price Premium  |  Entire Home Listings  |  Private Room Listings  |
+| ---| ---: | ---: | ---:| ---:| ---:|
+|  Battery Park City  |
+|  Tribeca  |
+|  SoHo  |
+|  Little Italy  |
+|  Nolita  |
+
+
 
 Observation and Further Investigation 
 Battery Park City, Tribeca, and SoHo appeared among the neighborhoods with the highest entire-home versus private-room pricing premiums. These same neighborhoods were also identified in Business Question 1 as having elevated listing prices relative to their medians.
