@@ -170,11 +170,22 @@ Price Premiums based on average prices by room type
 
 
 Observation and Further Investigation 
+
 Battery Park City, Tribeca, and SoHo appeared among the neighborhoods with the highest entire-home versus private-room pricing premiums. These same neighborhoods were also identified in Business Question 1 as having elevated listing prices relative to their medians.
 
 This overlap raised an additional analytical question: Could unusually expensive listings be inflating the calculated pricing premiums?
 
 To investigate, I compared average-based pricing premiums with median-based pricing premiums to determine whether the initial results accurately reflected typical price differences between entire homes and private rooms.
+
+Top result was Brighton Beach, but it seemed off, explaination after table.
+
+|  Neighborhood  | Avg Price Premium  |   Median Price Premium  |  Dollar Difference  |  Premium Difference %  |
+| ---| ---: | ---: | ---:| ---:|
+|  Battery Park City  |
+|  Tribeca  |
+|  SoHo  |
+|  Little Italy  |
+|  Nolita  |
 
 
 ### Business Interpretation
