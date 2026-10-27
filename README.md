@@ -161,11 +161,11 @@ Price Premiums based on average prices by room type
 
 |  Neighborhood  | Entire Home Avg  |   Private Room Avg  |  Price Premium  |  Entire Home Listings  |  Private Room Listings  |
 | ---| ---: | ---: | ---:| ---:| ---:|
-|  Battery Park City  |
-|  Tribeca  |
-|  SoHo  |
-|  Little Italy  |
-|  Nolita  |
+|  Battery Park City  |  $489  |  $106  |  $383  |  48  |  21  |
+|  Tribeca  |  $562  |  $191  |  $371  |  143  |  34  |
+|  SoHo  |  $366  |  $125  |  $241  |  241  |  115  |
+|  Little Italy  |  $291  |  $96  |  $195  |  76  |  41  |
+|  Nolita  |  $293  |  $113  |  $181  |  165  |  85  |
 
 
 
