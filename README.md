@@ -179,13 +179,13 @@ To investigate, I compared average-based pricing premiums with median-based pric
 
 Top result was Brighton Beach, but it seemed off, explaination after table.
 
-|  Neighborhood  | Avg Price Premium  |   Median Price Premium  |  Dollar Difference  |  Premium Difference %  |
-| ---| ---: | ---: | ---:| ---:|
-|  Battery Park City  |  $383  |  $125  |  $258  |  67%  |
-|  Tribeca  |  $371  |  $210  |  $161  |  43%  |
-|  SoHo  |  $241  |  $144  |  $97  |  40%  |
-|  Little Italy  |  $195  |  $94  |  $101  |  52%  |
-|  Nolita  |  $181  |  $125  |  $56  |  31%  |
+|  Neighborhood  | Average Premium  |   Median Premium  |  Average minus Median Premium  |
+| ---| ---: | ---: | ---:|
+|  Battery Park City  |  $383  |  $125  |  $258  | 
+|  Tribeca  |  $371  |  $210  |  $161  |  
+|  SoHo  |  $241  |  $144  |  $97  | 
+|  Little Italy  |  $195  |  $94  |  $101  |
+|  Nolita  |  $181  |  $125  |  $56  |
 
 
 ### Business Interpretation
