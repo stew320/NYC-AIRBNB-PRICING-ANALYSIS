@@ -146,10 +146,10 @@ High-Volume Neighborhood Analysis: East Village and Hell's Kitchen demonstrated 
 
 [High Listing Volume and Average Query](SQL/nyc_airbnb_analysis.sql#L108-L130)
 
-## Business Question 2: Entire Home vs. Private Room Pricing Premium
+## Business Question 2: Which NYC Neighborhoods Have the Largest Price Premium For an Entire Home Compared With a Private Room?
 
 ### Objective
-Determine how much more entire home/apartments cost compared with private rooms within the same NYC neighborhoods, and investigate whether listing volume is associated with the size of that premium.
+Identify neighborhoods with the largest room-type price gaps and check whether those findings hold when using medians instead of averages.
 
 ### Methodology 
 Using Google BigQuery, I calculated average listing prices for entire homes/apartments and private rooms within each neighborhood.
