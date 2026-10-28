@@ -223,7 +223,9 @@ Compare reviews per month across neighborhoods and include listing counts alongs
 
 
 #### Key Findings
-Table showing neighborhood, average reviews per month, median reviews per month and listing count
+
+|  Neighborhood  | Total Listings  |   Listings With Review Data  |  Average Reviews Per Month|  Median Reviews Per Month  |  
+| ---| ---: | ---: | ---:| ---:|  
 
 
 #### Business Interpertations
