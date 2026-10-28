@@ -187,18 +187,20 @@ Top result was Brighton Beach, but it seemed off, explaination after table.
 |  Little Italy  |  $195  |  $94  |  $101  |
 |  Nolita  |  $181  |  $125  |  $56  |
 
-The finding holds: All five neighborhoods still have positive median premiums, supporting that entire homes/apartments cost more than private rooms.
+All five neighborhoods still have positive median premiums, supporting that entire homes/apartments cost more than private rooms.
 
-The size changes: Median premiums are smaller in every neighborhood. Battery Park City drops from a $383 average premium to a $125 median premium - a $258 difference.
+Median premiums are smaller in every neighborhood. Battery Park City's premium decreases from $383 using averages to $125 usings medians. 
 
-Slight change in ranking: Among these five neighborhoods, Tribeca has the largest median premium at $210, as oppose to Battery Park City leading with the average premium.
+Among these five neighborhoods, Tribeca has the largest median premium at $210, as oppose to Battery Park City leading with the average premium.
 
-Larger average premiums suggest sensitivity to unusually high prices, examining individual listing prices would be needed to confirm.
+Larger average premiums suggest sensitivity to unusually high prices. 
+
+Examining individual listing prices would be needed to confirm.
 
 ### Business Interpretation
 Entire homes/apartments generally commanded higher prices than private rooms, but the size of the premium varied across neighborhoods.
 
-Tbe finding suggest that hosts should consider neighborhood-specific pricing patterns rather than assuming higher listing volume atuomatically corresponds to larger price premiums.
+Tbe findings suggest that hosts should consider neighborhood-specific pricing patterns rather than assuming higher listing volume atuomatically corresponds to larger price premiums.
 
 ### Supporting SQL Analysis
 1. Price Premium Analysis
