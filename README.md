@@ -212,6 +212,32 @@ Tbe findings suggest that hosts should consider neighborhood-specific pricing pa
 [View Correlation Query](SQL/nyc_airbnb_analysis.sql#L172-L192)- Measures the relationship between listing volumes and price premium across neighborhoods.
 
 
+#### Business Question 3: Neighborhood Activity and Demand Indicators
+Which neighborhoods show the strongest signs of Airbnb demand based on listing activity and review frequency?
+
+#### Objective
+Identify neighborhoods with higher review activity, using reviews per month as a proxy for demand and listing counts to provide market context.
+
+#### Methodolgy
+Compare reviews per month across neighborhoods and include listing counts alongside the results. Review both average and median review activity to assess whether the findings reflect typical listings or are influenced by a smaller number of highly reviewed listings.
+
+
+#### Key Findings
+Table showing neighborhood, average reviews per month, median reviews per month and listing count
+
+
+#### Business Interpertations
+Explain how the findings could help hosts identify neighborhoods with stronger guest activity. Distinguish higher review activity from higher listing volume.
+
+
+#### Limitations
+
+
+#### Supporting SQL Analysis
+
+
+
+
 
 
 
