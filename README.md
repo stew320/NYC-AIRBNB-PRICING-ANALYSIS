@@ -246,18 +246,18 @@ The top 5 neighborhoods by average reviews per month all happened to be in Queen
 The largest markets by reviewed listing count do not have the highest review rates per listing.  The smaller listing count neighborhoods had higher reviews per month averages, while the higher listing count neighborhoods had much smaller reviews per month averages.
 
 #### Business Interpertations
-Explain how the findings could help hosts identify neighborhoods with stronger guest activity. Distinguish higher review activity from higher listing volume.
+Hosts should consider both market size and review frequency; a larger market does not automatically mean more frequent guest activity for an individual listing.
 
 
 #### Limitations
-
+Reviews are an indirect activity measure, missing review rates were excluded, and these results do not establish bookings, occupancy, revenue, or profitability.
 
 #### Supporting SQL Analysis
 
+[View SQL Analysis](SQL/nyc_airbnb_analysis.sql#) 
 
 
-
-
+[View SQL Analysis](SQL/nyc_airbnb_analysis.sql) 
 
 
 
