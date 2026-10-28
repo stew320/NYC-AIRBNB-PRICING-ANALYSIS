@@ -226,6 +226,21 @@ Compare reviews per month across neighborhoods and include listing counts alongs
 
 |  Neighborhood  | Total Listings  |   Listings With Review Data  |  Average Reviews Per Month|  Median Reviews Per Month  |  
 | ---| ---: | ---: | ---:| ---:|  
+|  East Elmhurst  |  185  |  171  |  4.82  |  4.26  |
+|  Springfield Gardens  |  85  |  80  |  4.46  |  2.9  |
+|  Queens Village  |  60  |  50  |  3.22  |  2.71  |
+|  South Ozone Park  |  40  |  38  |  3.18  |  2.0  |
+|  Jamaica  |  231  |  192  |  3.15  |  2.06  |
+
+The top 5 neighborhoods by average reviews per month all happened to be in Queens. The total listings was on the lower side, so I decided to order the list by listings with review data, to get a better understanding contextually.
+
+|  Neighborhood  | Total Listings  |  Listings with Review Data  |  Average Reviews per Month  |  Median Reviews Per Month |
+| ---| ---: | ---: | ---:| ---:| 
+|  Williamsburg  |  3920  |  3163  |  1.1  |  0.49  |
+|  Bedford-Stuyvesant  |  3714  |  3141  |  1.55  |  1.0  |
+|  Harlem  |  2658  |  2206  |  1.34  |  0.77  |
+|  Bushwick  |  2465  |  1944  |  1.35  |  0.68  |
+|  Hell's Kitchen  |  1958  |  1532  |  1.84  |  1.0  |
 
 
 #### Business Interpertations
