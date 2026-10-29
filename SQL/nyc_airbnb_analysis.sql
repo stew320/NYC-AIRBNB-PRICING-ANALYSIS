@@ -79,7 +79,7 @@ SELECT
  APPROX_QUANTILES(price, 2)[OFFSET (1)] AS median_price,
  ROUND(AVG(price) - APPROX_QUANTILES(price, 2)[OFFSET (1)], 2) AS avg_median_difference
 FROM 
- `sixth-beaker-478016-f6.NYC_AIRBNB.NYC_AIRBNB_LISTINGS`
+ `possible-lotus-511718-p7.nyc_airbnb.air_bnb_listings`
 WHERE
  price > 0 
 GROUP BY
