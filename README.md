@@ -23,44 +23,26 @@ Using Google BigQuery for data cleaning and SQL analysis, and Tableau for visual
 - **Tableau**: Data visualization and interactive dashboard development.
 
 ##### Dataset
-NYC AirBnB Open Data
-The dataset contains information about AirBnB listings f NYC, including:
-1) Borough and neighborhood
-2) Room type
-3) Listing price
-4) Minimum-night requirements
-5) Number of reviews
-6) Host listing counts
-7) Availability
-8) Additional listing information
+-**Source**: NYC Airbnb Open Data (Kaggle)
 
-###### Analysis
-SQL will be used to investigate the business questions above and identify meaningful patterns within the NYC AirBnB market.
-Analysis will progress from:
-Data Cleaning--Exploratory Analysis--Market Segmentation--Pricing Analysis--Competitive Analysis--Business Insights
+The dataset contains 48,895 Airbnb listings across New York City's five boroughs. It includes information on neighborhood locations, room types, listing prices, minimum-night requirements, review activity, host listing counts, and availability.
 
-###### Key Findings
+These variables provide the foundation for analyzing neighborhood pricing patterns, room-type premiums, and review activity across the NYC Airbnb market.
+
+### Analysis
 
 
-###### Business Recommendations
-
-###### Tableau Dashboard
-
-
-
-SQL AND TABLEAU ANALYSIS OF NYC LISTINGS
-
-## SQL Analysis
+### SQL Analysis
 
 All SQL queries used for data exploration, data quality checks, and business analysis are stored in a separate SQL file.
 
 [View Full SQL Analysis](SQL/nyc_airbnb_analysis.sql)
   
-## Data Exploration & Quality Checks
+### Data Exploration & Quality Checks
 
 Before conducting the business analysis, I used Google BigQuery to examine the dataset's structure, completeness, and reliability.
 
-### Key Findings
+#### Key Findings
 
 - Total lisitings: 48,895
 - Duplicate listing IDs: 0
@@ -68,13 +50,13 @@ Before conducting the business analysis, I used Google BigQuery to examine the d
 - Missing reviews per month: 10,052
 - Listings with a price of $0: 11
 
-### Data Quality Considerations
+#### Data Quality Considerations
 
-Missing review activity was evaluated carefully because listings without recorded reviews should not automatically be interpreted as having no demand.
+Missing reviews_per_month values were identified and excluded from calculations requiring recorded review frequency. These missing values were not automatically interpreted as zero demand.
 
-Listings with a price of 0 were identified as invalid for pricing comparisons and excluded from pricing analysis.
+Eleven listings with prices of $0 were identified and excluded from pricing analyses to avoid distorting average and median price calculations.
 
-These checks helped establish a more reliable foundation for the subsequent neighborhood and room-type comparisons.
+These quality checks established a more reliable foundation for subsequent neighborhood pricing, room-type premium, and review-activity comparisons.
 
 ## Business Question 1: Which NYC Neighborhoods Have the Highest Average Listing Prices, and How Do Median Prices Compare?
 
