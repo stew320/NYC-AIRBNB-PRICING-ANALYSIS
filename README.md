@@ -24,7 +24,7 @@ Using Google BigQuery for data cleaning and SQL analysis, and Tableau for visual
 
 ##### Dataset
 NYC AirBnB Open Data
-The dataset contains information about AirBnB listings throughout NYC, including:
+The dataset contains information about AirBnB listings f NYC, including:
 1) Borough and neighborhood
 2) Room type
 3) Listing price
