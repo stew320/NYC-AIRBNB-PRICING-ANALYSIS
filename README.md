@@ -258,7 +258,7 @@ Reviews are an indirect activity measure, missing review rates were excluded, an
 
 #### Supporting SQL Analysis
 
-[View SQL Analysis](SQL/nyc_airbnb_analysis.sql#) 
+[Listings and Avg Review per Month Query](SQL/nyc_airbnb_analysis.sql#L203-L214) 
 
 
 [View SQL Analysis](SQL/nyc_airbnb_analysis.sql) 
