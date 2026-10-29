@@ -133,7 +133,7 @@ This comparison evaluates average-to-median price differences in neighborhoods w
 
 Among the high-volume neighborhoods, East Village and Hell's Kitchen recorded the smallest average-to-median price differences at $36 and $37, respectively, with each neighborhood containing over 1,800 listings.
 
-These smaller differences suggest that the average listing prices may provide a more representative estimate of typical listing prices in these neighborhoods compared with neighborhoods exhibiting larger gaps.
+These smaller differences suggest that the median listing prices may provide a more representative estimate of typical listing prices in these neighborhoods compared with neighborhoods exhibiting larger gaps.
 
 ## Business Interpretation
 
