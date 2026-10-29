@@ -206,7 +206,7 @@ SELECT
  COUNT(*) AS total_listings,
  ROUND(AVG(reviews_per_month), 2) AS avg_reviews_per_month
 FROM
- `sixth-beaker-478016-f6.NYC_AIRBNB.NYC_AIRBNB_LISTINGS`
+ `possible-lotus-511718-p7.nyc_airbnb.air_bnb_listings`
 WHERE reviews_per_month IS NOT NULL
 GROUP BY neighbourhood_group,
  neighbourhood
