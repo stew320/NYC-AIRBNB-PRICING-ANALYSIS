@@ -16,11 +16,11 @@ Using Google BigQuery for data cleaning and SQL analysis, and Tableau for visual
 3) Neighborhood Activity and Deman Indicators: Which neighborhoods show the strongest signs of Airbnb demand based on listing activity and review frequency?
 
 #### Tools Used
--- **SQL**: Data cleaning, filtering, aggregation, and statistical analysis.
+- **SQL**: Data cleaning, filtering, aggregation, and statistical analysis.
 
--- **Google BigQuery**: SQL query execution and dataset management.
+- **Google BigQuery**: SQL query execution and dataset management.
 
--- **Tableau**: Data visualization and interactive dashboard development.
+- **Tableau**: Data visualization and interactive dashboard development.
 
 ##### Dataset
 NYC AirBnB Open Data
