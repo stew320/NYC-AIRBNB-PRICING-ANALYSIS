@@ -209,7 +209,7 @@ Tbe findings suggest that hosts should consider neighborhood-specific pricing pa
 
 2. Listing Volume & Price Premium Correlation
 
-[View Correlation Query](SQL/nyc_airbnb_analysis.sql#L172-L192)- Measures the relationship between listing volumes and price premium across neighborhoods.
+[View Correlation Query](SQL/nyc_airbnb_analysis.sql#L174-L226)- Measures the relationship between listing volumes and price premium across neighborhoods.
 
 
 #### Business Question 3: Neighborhood Activity and Demand Indicators
