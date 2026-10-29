@@ -2,11 +2,9 @@
 
 ## Project Overview
 
-This project analyzes the NYC AirBnB market to identify factors associated with listing prices, evaluate competitive positioning across neighborhoods and roomy types, and uncover market segments and potential opportunities for hosts.
+This project analyzes NYC Airbnb listings to identify neighborhood pricing patterns, compare room=type premiums, and evaluate factors associated with listing prices.
 
-SQL is used to clean, explore, and analyze the dataset, while Tableau is used to transform the results into interactive visualizations and communicate business insights.
-
-The goal of this project is to move beyond basic listing counts and averages and investigate what factors are associated with AirBnB pricing and competitive positioning within the NYC market.
+Using Google BigQuery for data cleaning and SQL analysis, and Tableau for visualizations, the project examines how average and median prices differ across neighborhoods, how property types influence pricing, and what these findings suggest for competitive pricing decisions. 
 
 
 ### Business Questions
