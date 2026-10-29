@@ -247,7 +247,7 @@ The largest markets by reviewed listing count do not have the highest review rat
 
 Correlation = -0.206
 
-
+[Reviews per Month vs. Listing Count Query](SQL/nyc_airbnb_analysis.sql#L221-L234)
 
 #### Business Interpertations
 Hosts should consider both market size and review frequency; a larger market does not automatically mean more frequent guest activity for an individual listing.
