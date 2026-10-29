@@ -165,33 +165,65 @@ ORDER BY
  LIMIT 5;
 
 
--- Findings: Neighborhoods with the largest price premiums generally had lower listing volumes. Higher-volumed neighborhoods still showed 
--- meaningful premiums between Entire home/apt and Private room listings, typically ranging from $80 - $140.  However, listing volume did not 
--- show a clear relationship with the size of the price premium.
+-- Findings: The top neighborhoods with the largest price premiums were the the same neighborhoods that I investigated because the average was being pulled by unusually high
+price listings.
 
--- To further examine the relationship with price premium and listing volume I calculated the correlation between the two variables across the neighborhoods.
+-- To further investigate, I decided to find the median premium of those 5 neighborhoods to see if the unusally high listing was affecting the premium.
 
-WITH price_premium AS ( 
- SELECT neighbourhood_group, neighbourhood,
- ROUND(AVG(CASE WHEN room_type = 'Entire home/apt' THEN price END), 2) AS avg_entire_home_price,
- ROUND(AVG(CASE WHEN room_type = 'Private room' THEN price END), 2) AS avg_private_room_price,
- ROUND (AVG(CASE WHEN room_type = 'Entire home/apt' THEN price END) - 
- AVG(CASE WHEN room_type = 'Private room' THEN price END), 2) AS price_premium,
- COUNTIF(room_type = 'Entire home/apt') AS entire_home_listings,
- COUNTIF(room_type = 'Private room') AS private_room_listings
 
-FROM `sixth-beaker-478016-f6.NYC_AIRBNB.NYC_AIRBNB_LISTINGS`
-WHERE price > 0 
-GROUP BY  neighbourhood_group,
+SELECT
+ neighbourhood_group,
+ neighbourhood,
+
+
+ ROUND(AVG(CASE WHEN room_type = 'Entire home/apt' THEN price END) -
+ AVG(CASE WHEN room_type = 'Private room' THEN price END) , 2) 
+ AS price_premium,
+
+
+ ROUND(
+  APPROX_QUANTILES(
+    IF(room_type = 'Entire home/apt', price, NULL),
+    100
+  )[OFFSET(50)]
+  -
+  APPROX_QUANTILES(
+    IF(room_type = 'Private room', price, NULL),
+    100
+  )[OFFSET(50)], 2
+ ) AS median_price_premium,
+ ROUND(
+  (
+    AVG(CASE WHEN room_type = 'Entire home/apt' THEN price END)
+    -
+    AVG(CASE WHEN room_type = 'Private room' THEN price END)
+  )
+  -
+  (
+    APPROX_QUANTILES(
+      IF(room_type = 'Entire home/apt', price, NULL),
+      100
+    )[OFFSET(50)]
+    -
+    APPROX_QUANTILES(
+      IF(room_type = 'Private room', price, NULL),
+      100
+    )[OFFSET(50)]
+  ),
+  2
+ ) AS premium_difference
+ FROM
+ `possible-lotus-511718-p7.nyc_airbnb.air_bnb_listings`
+WHERE
+ price > 0
+GROUP BY
+ neighbourhood_group,
  neighbourhood
 HAVING COUNTIF(room_type = 'Entire home/apt') >= 20
- AND COUNTIF(room_type = 'Private room') >= 20)
+ AND COUNTIF(room_type = 'Private room') >= 20
 
-SELECT 
- ROUND(
- CORR(entire_home_listings + private_room_listings, price_premium),3) 
- AS listing_volume_price_premium_correlation
-FROM price_premium AS pp;
+ORDER BY price_premium DESC
+LIMIT 5;
 
 -- Findings: The correlation between listing volume and price premium was 0.04, indicating almost no linear relationship between the two variables.
 -- This suggest that neighborhoods with higher listing volumes do not necessarily have larger or smaller price premiums between Entire home/apt and 
