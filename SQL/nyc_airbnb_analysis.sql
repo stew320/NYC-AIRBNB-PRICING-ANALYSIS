@@ -223,8 +223,8 @@ WITH neighborhood_activity AS (
    neighbourhood_group,
    neighbourhood,
    COUNT(*) AS total_listings,
- AVG(reviews_per_month) AS avg_reviews_per_month
- FROM `sixth-beaker-478016-f6.NYC_AIRBNB.NYC_AIRBNB_LISTINGS`
+ ROUND(AVG(reviews_per_month), 2) AS avg_reviews_per_month
+ FROM `possible-lotus-511718-p7.nyc_airbnb.air_bnb_listings`
  WHERE reviews_per_month IS NOT NULL
  GROUP BY neighbourhood_group, neighbourhood
  HAVING COUNT(*) >= 20 
@@ -232,6 +232,7 @@ WITH neighborhood_activity AS (
  SELECT
    ROUND(CORR(total_listings, avg_reviews_per_month), 3) AS listings_volume_review_corr
  FROM neighborhood_activity
+
 
 -- Findings: Correlation between total listings with average reviews per month were -0.206, indicating a weak negative linear relationship between the two variables.
 -- This suggests that the relationship is not strong enough to determine that listing volume alone explains review frequency.
