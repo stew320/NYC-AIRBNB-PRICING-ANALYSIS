@@ -149,10 +149,10 @@ SELECT
  AVG(CASE WHEN room_type = 'Private room' THEN price END) , 2) 
  AS price_premium,
  COUNTIF(room_type = 'Entire home/apt') AS entire_home_listings,
- COUNTIF(room_type = 'Private room') AS private_room_listings
+ COUNTIF(room_type = 'Private room') AS private_room_listings,
 
-FROM
- `sixth-beaker-478016-f6.NYC_AIRBNB.NYC_AIRBNB_LISTINGS`
+ FROM
+ `possible-lotus-511718-p7.nyc_airbnb.air_bnb_listings`
 WHERE
  price > 0
 GROUP BY
@@ -161,7 +161,9 @@ GROUP BY
 HAVING COUNTIF(room_type = 'Entire home/apt') >= 20
  AND COUNTIF(room_type = 'Private room') >= 20
 ORDER BY
- price_premium DESC;
+ price_premium DESC
+ LIMIT 5;
+
 
 -- Findings: Neighborhoods with the largest price premiums generally had lower listing volumes. Higher-volumed neighborhoods still showed 
 -- meaningful premiums between Entire home/apt and Private room listings, typically ranging from $80 - $140.  However, listing volume did not 
