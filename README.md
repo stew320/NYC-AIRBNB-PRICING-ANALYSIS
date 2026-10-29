@@ -9,16 +9,18 @@ Using Google BigQuery for data cleaning and SQL analysis, and Tableau for visual
 
 ### Business Questions
 
-1) Which NYC neighborhoods have the highest average Airbnb listing prices, and how do median prices compare?
-2) How much of a pricing premium do entire homes/apartments command over private rooms within the same neighborhood?
-3) Is there a relationship between minimum-night requirements and listing prices, and does this relationship differ across neighborhoods or room types?
-4) Are certain neighborhoods more concentrated with multi-listing hosts, and how do their pricing patterns compare with a single-listing hosts?
-5) How can NYC AirBnB listings be segmented into budget, mid-market, premium, and luxury categories, and where are these different market segments concentrated?
+1) Neighborhood Pricing: Which NYC neighborhoods have the highest average Airbnb listing prices, and how do median prices compare?
+
+2) Room-Type Price Premium: How much of pricing premium do entire home/apartments command over private rooms within the same neighborhood?
+
+3) Neighborhood Activity and Deman Indicators: Which neighborhoods show the strongest signs of Airbnb demand based on listing activity and review frequency?
 
 #### Tools Used
-SQL- Data cleaning, filtering, aggregation, segmentation, and analysis
-Google BigQuery- SQL querying and data processing
-Tableau- Data visualization and interactive dashboard development
+-- **SQL**: Data cleaning, filtering, aggregation, and statistical analysis.
+
+-- **Google BigQuery**: SQL query execution and dataset management.
+
+-- **Tableau**: Data visualization and interactive dashboard development.
 
 ##### Dataset
 NYC AirBnB Open Data
