@@ -243,7 +243,11 @@ The top 5 neighborhoods by average reviews per month all happened to be in Queen
 |  Hell's Kitchen  |  1958  |  1532  |  1.84  |  1.0  |
 
 
-The largest markets by reviewed listing count do not have the highest review rates per listing.  The smaller listing count neighborhoods had higher reviews per month averages, while the higher listing count neighborhoods had much smaller reviews per month averages.
+The largest markets by reviewed listing count do not have the highest review rates per listing.  The smaller listing count neighborhoods had higher reviews per month averages, while the higher listing count neighborhoods had much smaller reviews per month averages. To further investigate, I decided to run a correlation query between the total listing count by neighborhood and reviews per month.
+
+Correlation = -0.206
+
+
 
 #### Business Interpertations
 Hosts should consider both market size and review frequency; a larger market does not automatically mean more frequent guest activity for an individual listing.
