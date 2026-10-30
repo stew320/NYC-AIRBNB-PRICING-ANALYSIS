@@ -44,11 +44,11 @@ Before conducting the business analysis, I used Google BigQuery to examine the d
 
 #### Key Findings
 
-- Total lisitings: 48,895
-- Duplicate listing IDs: 0
-- Missing host names: 21
-- Missing reviews per month: 10,052
-- Listings with a price of $0: 11
+- Total lisitings: 48,895  [View SQL Query](SQL/nyc_airbnb_analysis.sql#L17-L32)
+- Duplicate listing IDs: 0  [View SQL Query](SQL/nyc_airbnb_analysis.sql#L36-L40) 
+- Missing host names: 21  [View SQL Query](SQL/nyc_airbnb_analysis.sql#L145-L49)
+- Missing reviews per month: 10,052  [View SQL Query](SQL/nyc_airbnb_analysis.sql#L54-L58)
+- Listings with a price of $0: 11  [View SQL Query](SQL/nyc_airbnb_analysis.sql#L74-L91)
 
 #### Data Quality Considerations
 
