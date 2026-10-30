@@ -58,7 +58,7 @@ Before conducting the business analysis, I used Google BigQuery to examine the d
 
 - These quality checks established a more reliable foundation for subsequent neighborhood pricing, room-type premium, and review-activity comparisons.
 
-## Business Question 1: Which NYC Neighborhoods Have the Highest Average Listing Prices, and How Do Median Prices Compare?
+### Business Question 1: Which NYC Neighborhoods Have the Highest Average Listing Prices, and How Do Median Prices Compare?
 
 ## Objective
 Identify neighborhoods with the highest average Airbnb listing prices and compare average prices with median prices to better understand neighborhood pricing patterns and the influence of high-priced lsitings.
@@ -66,17 +66,16 @@ Identify neighborhoods with the highest average Airbnb listing prices and compar
 ## Methodoly
 Using Google BigQuery, I analyzed neighborhood-level Airbnb pricing by:
 - Excluding listings with prices of $0.
-- Calculating average listing prices by neighborhood.
-- Calculating median listing prices to provide a comparison with the average.
-- Including total listing counts to provide context for neighborhood sample sizes.
-- Applying minimum listing threshold of 20 listings per neighborhood.
+- Calculating average and median listing prices by neighborhood.
+- Counting total listings to evaluate neighborhood sample sizes.
+- Applying minimum threshold of more than 20 listings per neighborhood for the initial comparison.
+- Ranking neighborhoods by average listing price to identify the highest-priced markets.
 
-Additional Analysis: High-Volume Neighborhoods:
-To evaluate whether average prices were representative of neighborhoods with substantial listing activity, I conducted a secondary analysis:
-- Identified the top 50 neighborhoods ranked by average listing price.
-- Selected neighborhoods within that group containing more than 1,000 listings.
-- Compared average and median listing prices within those neighborhoods.
-- Examined the differences between these measures to assess how well average price represented typical listing prices.
+Additional Analysis -- High-Volume Neighborhoods:
+To evaluate pricing patterns in neighborhoods with larger listing inventories, I examined neighborhoods with more than 1,000 listings among the top 50 neighborhoods ranked by average price.
+
+I compared average and median prices to assess whether high-priced listings were disproportionately influencing neighborhood averages.
+
 
 ## Key Findings
 
