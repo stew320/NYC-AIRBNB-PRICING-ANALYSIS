@@ -86,7 +86,7 @@ GROUP BY
  neighbourhood_group,
  neighbourhood
 HAVING 
- COUNT(*) > 20
+ COUNT(*) >= 20
 ORDER BY
  avg_price DESC;
 
