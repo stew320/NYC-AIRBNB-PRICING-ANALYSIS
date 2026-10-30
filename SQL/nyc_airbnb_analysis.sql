@@ -17,7 +17,7 @@
 SELECT 
   COUNT(*) AS total_listings
 FROM 
- `sixth-beaker-478016-f6.NYC_AIRBNB.NYC_AIRBNB_LISTINGS`;
+ `possible-lotus-511718-p7.nyc_airbnb.air_bnb_listings`;
 
 -- Duplicate Listing IDs: No duplicate listing IDs were found.
 
@@ -25,9 +25,9 @@ SELECT
   id,
 COUNT(*) AS duplicate_count
 FROM 
- `sixth-beaker-478016-f6.NYC_AIRBNB.NYC_AIRBNB_LISTINGS`
+ `possible-lotus-511718-p7.nyc_airbnb.air_bnb_listings`
 GROUP BY
- idb
+ id
 HAVING
  COUNT(*) > 1;
 
@@ -37,7 +37,7 @@ SELECT
  COUNTIF(host_name IS NULL) AS missing_host_names,
  COUNTIF(reviews_per_month IS NULL) AS missing_reviews_per_month
 FROM 
- `sixth-beaker-478016-f6.NYC_AIRBNB.NYC_AIRBNB_LISTINGS`;
+ `possible-lotus-511718-p7.nyc_airbnb.air_bnb_listings`;
 
 -- I compared the number of listings with 0 total reviews to the number of listings with a missing reviews_per_monnth value.
 -- Result: Both were 10,052 listings, suggesting that the missing monthly reviews are associated with listings that have not yet received any reviews.
@@ -46,7 +46,7 @@ SELECT
  COUNTIF(number_of_reviews = 0 ) AS zero_review_listings,
  COUNTIF(reviews_per_month IS NULL) AS missing_reviews_per_month
 FROM 
- `sixth-beaker-478016-f6.NYC_AIRBNB.NYC_AIRBNB_LISTINGS`;
+ `possible-lotus-511718-p7.nyc_airbnb.air_bnb_listings`;
 
 -- Price Quality Check: Checked price field for missing or zero-dollar values that could potentially distort pricing calculations.
 -- 11 listings have a price of $0.  These listings will be excluded when performing price related analysis.
@@ -55,7 +55,7 @@ SELECT
  COUNTIF(price = 0 ) AS zero_price_listings,
  COUNTIF(price IS NULL) AS missing_price_listings
 FROM 
- `sixth-beaker-478016-f6.NYC_AIRBNB.NYC_AIRBNB_LISTINGS`;
+ `possible-lotus-511718-p7.nyc_airbnb.air_bnb_listings`;
 
 -- Data Quality Summary
 -- The dataset contains 48,895 listings with no duplicate listing IDs. Main quality issues found were 21 missing host names,
@@ -114,7 +114,7 @@ SELECT
  APPROX_QUANTILES(price, 2)[OFFSET (1)] AS median_price,
  ROUND(AVG(price) - APPROX_QUANTILES(price, 2)[OFFSET (1)], 2) AS avg_median_difference
 FROM 
- `sixth-beaker-478016-f6.NYC_AIRBNB.NYC_AIRBNB_LISTINGS`
+ `possible-lotus-511718-p7.nyc_airbnb.air_bnb_listings`
 WHERE
  price > 0 
 GROUP BY
@@ -174,12 +174,9 @@ price listings.
 SELECT
  neighbourhood_group,
  neighbourhood,
-
-
  ROUND(AVG(CASE WHEN room_type = 'Entire home/apt' THEN price END) -
  AVG(CASE WHEN room_type = 'Private room' THEN price END) , 2) 
  AS price_premium,
-
 
  ROUND(
   APPROX_QUANTILES(
@@ -265,7 +262,7 @@ WITH neighborhood_activity AS (
 )
  SELECT
    ROUND(CORR(total_listings, avg_reviews_per_month), 3) AS listings_volume_review_corr
- FROM neighborhood_activity
+ FROM neighborhood_activity;
 
 
 -- Findings: Correlation between total listings with average reviews per month were -0.206, indicating a weak negative linear relationship between the two variables.
