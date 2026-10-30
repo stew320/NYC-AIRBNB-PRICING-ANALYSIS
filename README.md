@@ -251,7 +251,7 @@ Reviews are an indirect activity measure, missing review rates were excluded, an
 
    [View SQL Query](SQL/nyc_airbnb_analysis.sql#L203-L214) 
 
-2. Reviews per Month and Listing Count Correlation:
+2. Listing Count and Average Reviews per Month Correlation:
 
    
    [View SQL Query](SQL/nyc_airbnb_analysis.sql#L221-L234)
