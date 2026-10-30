@@ -157,7 +157,7 @@ Price Premiums based on average prices by room type
 
 
 
-Observation and Further Investigation 
+**Observation and Further Investigation** 
 
 Battery Park City, Tribeca, and SoHo appeared among the neighborhoods with the highest entire-home versus private-room pricing premiums. These same neighborhoods were also identified in Business Question 1 as having elevated listing prices relative to their medians.
 
@@ -220,7 +220,7 @@ Identify neighborhoods with higher review activity, using reviews per month as a
 |  South Ozone Park  |  40  |  38  |  3.18  |  2.0  |
 |  Jamaica  |  231  |  192  |  3.15  |  2.06  |
 
-The top 5 neighborhoods by average reviews per month all happened to be in Queens. The total listings was on the lower side, so I decided to order the list by listings with review data, to get a better understanding contextually.
+**The top 5 neighborhoods by average reviews per month all happened to be in Queens. The total listings was on the lower side, so I decided to order the list by listings with review data, to get a better understanding contextually.**
 
 |  Neighborhood  | Total Listings  |  Listings with Review Data  |  Average Reviews per Month  |  Median Reviews Per Month |
 | ---| ---: | ---: | ---:| ---:| 
