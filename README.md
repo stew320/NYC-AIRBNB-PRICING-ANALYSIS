@@ -23,7 +23,7 @@ Using Google BigQuery for data cleaning and SQL analysis, and Tableau for visual
 - **Tableau**: Data visualization and interactive dashboard development.
 
 ##### Dataset
--**Source**: NYC Airbnb Open Data (Kaggle)
+- **Source**: NYC Airbnb Open Data (Kaggle)
 
 The dataset contains 48,895 Airbnb listings across New York City's five boroughs. It includes information on neighborhood locations, room types, listing prices, minimum-night requirements, review activity, host listing counts, and availability.
 
@@ -52,11 +52,11 @@ Before conducting the business analysis, I used Google BigQuery to examine the d
 
 #### Data Quality Considerations
 
-Missing reviews_per_month values were identified and excluded from calculations requiring recorded review frequency. These missing values were not automatically interpreted as zero demand.
+- Missing reviews_per_month values were identified and excluded from calculations requiring recorded review frequency. These missing values were not automatically interpreted as zero demand.
 
-Eleven listings with prices of $0 were identified and excluded from pricing analyses to avoid distorting average and median price calculations.
+- Eleven listings with prices of $0 were identified and excluded from pricing analyses to avoid distorting average and median price calculations.
 
-These quality checks established a more reliable foundation for subsequent neighborhood pricing, room-type premium, and review-activity comparisons.
+- These quality checks established a more reliable foundation for subsequent neighborhood pricing, room-type premium, and review-activity comparisons.
 
 ## Business Question 1: Which NYC Neighborhoods Have the Highest Average Listing Prices, and How Do Median Prices Compare?
 
@@ -129,7 +129,7 @@ High-Volume Neighborhood Analysis: East Village and Hell's Kitchen demonstrated 
    
 [View SQL Query](SQL/nyc_airbnb_analysis.sql#L74-L91)
 
-3. High Listing Volume and Average/Median Price Analysis:
+2. High Listing Volume and Average/Median Price Analysis:
 
    
 [View SQL Query](SQL/nyc_airbnb_analysis.sql#L108-L130)
@@ -140,9 +140,9 @@ High-Volume Neighborhood Analysis: East Village and Hell's Kitchen demonstrated 
 Identify neighborhoods with the largest room-type price gaps and check whether those findings hold when using medians instead of averages.
 
 ### Methodology 
-Calculate the average entire-home price minus the average private-room price for each neighborhood. 
-Repeat using median prices, then compare neighborhood rankings and premium amomunts.
-Include listing counts for both room types to provide context.
+- Calculate the average entire-home price minus the average private-room price for each neighborhood. 
+- Repeat using median prices, then compare neighborhood rankings and premium amomunts.
+- Include listing counts for both room types to provide context.
 
 ### Key Findings
 Price Premiums based on average prices by room type
@@ -206,7 +206,8 @@ Which neighborhoods show the strongest signs of Airbnb demand based on listing a
 Identify neighborhoods with higher review activity, using reviews per month as a proxy for demand and listing counts to provide market context.
 
 #### Methodolgy
-Compare reviews per month across neighborhoods and include listing counts alongside the results. Review both average and median review activity to assess whether the findings reflect typical listings or are influenced by a smaller number of highly reviewed listings.
+- Compare reviews per month across neighborhoods and include listing counts alongside the results.
+- Review both average and median review activity to assess whether the findings reflect typical listings or are influenced by a smaller number of highly reviewed listings.
 
 
 #### Key Findings
@@ -250,7 +251,7 @@ Reviews are an indirect activity measure, missing review rates were excluded, an
 
    [View SQL Query](SQL/nyc_airbnb_analysis.sql#L203-L214) 
 
-3. Reviews per Month and Listing Count Correlation:
+2. Reviews per Month and Listing Count Correlation:
 
    
    [View SQL Query](SQL/nyc_airbnb_analysis.sql#L221-L234)
