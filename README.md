@@ -197,7 +197,7 @@ Tbe findings suggest that hosts should consider neighborhood-specific pricing pa
 
 2. Price Premium with Median Analysis
 
-[View SQL Query](SQL/nyc_airbnb_analysis.sql#L174-L226)- Compares average premiums between home/apartment and private rooms, with median premiums.
+[View SQL Query](SQL/nyc_airbnb_analysis.sql#L174-L223)- Compares average premiums between home/apartment and private rooms, with median premiums.
 
 #### Business Question 3: Neighborhood Activity and Demand Indicators
 Which neighborhoods show the strongest signs of Airbnb demand based on listing activity and review frequency?
@@ -249,12 +249,12 @@ Reviews are an indirect activity measure, missing review rates were excluded, an
 1. Listings and Average Reviews per Month Analysis:
 
 
-   [View SQL Query](SQL/nyc_airbnb_analysis.sql#L203-L214) 
+   [View SQL Query](SQL/nyc_airbnb_analysis.sql#L234-L245) 
 
 2. Listing Count and Average Reviews per Month Correlation:
 
    
-   [View SQL Query](SQL/nyc_airbnb_analysis.sql#L221-L234)
+   [View SQL Query](SQL/nyc_airbnb_analysis.sql#L252-L265)
 
 
 
