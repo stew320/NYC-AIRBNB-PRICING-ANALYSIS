@@ -116,11 +116,21 @@ Among the high-volume neighborhoods, East Village and Hell's Kitchen recorded th
 
 These smaller differences suggest that the median listing prices may provide a more representative estimate of typical listing prices in these neighborhoods compared with neighborhoods exhibiting larger gaps.
 
+**Correlation Analysis -- Listing Volume vs. Average-Median Price Difference** 
+
+To further investigate whether neighborhood listing volume was associated with pricing differences, I calculate the Pearson correlation between total listings and the average-median price gap among the top 50 neighborhoods ranked by average listing price.
+
+The resulting correlation was -0.192, indicating a weak negative linear relationship. While neighborhoods with larger listing inventories tended to have slightly smaller average-median price differences, the relationship was not strong enough to suggest that listing volume alone explains these pricing gaps.
+
 ## Business Interpretation
 
-**Average vs Median price:** Neighborhoods with high average prices may contain unusually expensive properties that influence the overall average. Comparing median prices help provide a more representative benchmark for typical listing costs, allowing host and investors to make more informed pricing decisions. 
+**Average vs Median price:** Neighborhoods with substantial differences between average and median listing prices may contain unusually expensive properties that inflate overall averages. Median prices provide an additional benchmark for evaluating typical listing costs and can help hosts make more informed competitive pricing decisions.
 
-**High-Volume Neighborhood Analysis:** East Village and Hell's Kitchen demonstrated relatively small differences between average and median listing prices despite having over 1,800 listings each. This suggests that average prices in these neighborhoods may be more representative of typical listing costs, making them potentially useful benchmarks for hosts evaluating competitive pricing.
+**High-Volume Neighborhood Analysis:** East Village and Hell's Kitchen demonstrated relatively small average-median price differences of $36 and $37, respectively.
+
+These smaller gaps indicate that average listing prices are closer to median prices, making the average a more useful reflection of the typical listing price in these neighborhoods compared with neighborhoods exhibiting substantially larger gaps.
+
+However, the weak negative correlation (r=-0.192) between listing volume and average-median price differences suggests that listing count alone does not strongly explain the size of these gaps.
 
 ## Supporting SQL Analysis
 1. Average Listing Price vs. Median Listing Price Analysis:
@@ -132,6 +142,10 @@ These smaller differences suggest that the median listing prices may provide a m
 
    
 [View SQL Query](SQL/nyc_airbnb_analysis.sql#L108-L130)
+
+3. Listing Volume and Average-Median Price Gap Correlation:
+
+[View SQL Query](SQL/nyc_airbnb_analysis.sql#L000-L000)  ADD CORR QUERY FROM SQL
 
 ## Business Question 2: Which NYC Neighborhoods Have the Largest Price Premium For an Entire Home Compared With a Private Room?
 
