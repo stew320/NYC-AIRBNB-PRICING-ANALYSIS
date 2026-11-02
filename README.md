@@ -63,17 +63,12 @@ Before conducting the business analysis, I used Google BigQuery to examine the d
 Identify neighborhoods with the highest average Airbnb listing prices and compare average prices with median prices to better understand neighborhood pricing patterns and the influence of high-priced lsitings.
 
 ## Methodoly
-Using Google BigQuery, I analyzed neighborhood-level Airbnb pricing by:
-- Excluding listings with prices of $0.
-- Calculating average and median listing prices by neighborhood.
-- Counting total listings to evaluate neighborhood sample sizes.
-- Applying minimum threshold of more than 20 listings per neighborhood for the initial comparison.
-- Ranking neighborhoods by average listing price to identify the highest-priced markets.
 
-Additional Analysis -- High-Volume Neighborhoods:
-To evaluate pricing patterns in neighborhoods with larger listing inventories, I examined neighborhoods with more than 1,000 listings among the top 50 neighborhoods ranked by average price.
+Listings with prices of $0 were excluded from the pricing analysis. Using SQL in Google BigQuery, average listing prices, median listing prices, and total listing counts were calculated for each neighborhood.
 
-I compared average and median prices to assess whether high-priced listings were disproportionately influencing neighborhood averages.
+Neighborhoods were ranked by average listing price to identify the highest-priced areas. Differences between average and median prices were then examined to assess how closely average prices reflected typical listing prices.
+
+A separate analysis focused on neighborhoods with more than 1,000 listings to evaluate pricing patterns in higher-volume markets and provide additional context for interpreting average-median price differences.
 
 
 ## Key Findings
@@ -113,38 +108,36 @@ To extend the initial pricing analysis, I examined neighborhoods with more than 
 
 Among the high-volume neighborhoods, East Village and Hell's Kitchen recorded the smallest average-to-median price differences at $36 and $37, respectively, with each neighborhood containing over 1,800 listings.
 
-These smaller differences suggest that the median listing prices may provide a more representative estimate of typical listing prices in these neighborhoods compared with neighborhoods exhibiting larger gaps.
+These smaller differences indicate that average listing prices are closer to median prices in East Village and Hell's Kitchen, making the averages more representative of typical listing prices compared with neighborhoods exhibiting substantially larger gaps. However, smaller average-median differences do not necessarily indicate that individual listing prcies are tightly clustered.
 
 **Correlation Analysis -- Listing Volume vs. Average-Median Price Difference** 
 
-To further investigate whether neighborhood listing volume was associated with pricing differences, I calculate the Pearson correlation between total listings and the average-median price gap among the top 50 neighborhoods ranked by average listing price.
+To investigate the relationship between neighborhood listing volume and pricing differences, I calculated the Pearson correlation between total listings and the average-median price gap among the top 50 neighborhoods ranked by average listing price.
 
-The resulting correlation was -0.192, indicating a weak negative linear relationship. While neighborhoods with larger listing inventories tended to have slightly smaller average-median price differences, the relationship was not strong enough to suggest that listing volume alone explains these pricing gaps.
+The resulting correlation was -0.192, indicating a weak negative linear relationship. This suggests that neighborhoods with more listings tended to have slightly smaller average-median price differences within this group, although listing volume alone does not strongly explain these differences.
 
 ## Business Interpretation
 
-**Average vs Median price:** Neighborhoods with substantial differences between average and median listing prices may contain unusually expensive properties that inflate overall averages. Median prices provide an additional benchmark for evaluating typical listing costs and can help hosts make more informed competitive pricing decisions.
+Neighborhoods with substantial differences between average and median listing prices may contain unusually expensive properties that pull the average upward. For hosts evaluating competitive prices, relying on the average alone could therefore create a misleading impression of typical neighborhood pricing.
 
-**High-Volume Neighborhood Analysis:** East Village and Hell's Kitchen demonstrated relatively small average-median price differences of $36 and $37, respectively.
+In neighborhoods such as East Village and Hell's Kitchen, where average prices are relatively close to media prices, the average may provide a more useful benchmark for typical listing prices. However, this does not necessarily mean that individual listing prices are tightly clustered.
 
-These smaller gaps indicate that average listing prices are closer to median prices, making the average a more useful reflection of the typical listing price in these neighborhoods compared with neighborhoods exhibiting substantially larger gaps.
-
-However, the weak negative correlation (r=-0.192) between listing volume and average-median price differences suggests that listing count alone does not strongly explain the size of these gaps.
+The weak negative correlation (r=-0.192) indicates that listing volume alone does not strongly explain differences between average and median prices. Hosts should therefore consider average prices, median prices, and neighborhood listing counts together when evaluating local pricing patterns.
 
 ## Supporting SQL Analysis
 1. Average Listing Price vs. Median Listing Price Analysis:
 
    
-[View SQL Query](SQL/nyc_airbnb_analysis.sql#L74-L91)
+[View SQL Query](SQL/nyc_airbnb_analysis.sql#L74-L91) - Calculates average and median listing prices by neighborhood, including total listing counts.
 
 2. High Listing Volume and Average/Median Price Analysis:
 
    
-[View SQL Query](SQL/nyc_airbnb_analysis.sql#L108-L130)
+[View SQL Query](SQL/nyc_airbnb_analysis.sql#L108-L130) - Compares average and median listing prices in higher-volume neighborhoods.
 
 3. Listing Volume and Average-Median Price Gap Correlation:
 
-[View SQL Query](SQL/nyc_airbnb_analysis.sql#L000-L000)  ADD CORR QUERY FROM SQL
+[View SQL Query](SQL/nyc_airbnb_analysis.sql#L000-L000) - Calculates the Pearson correlation between listing volume and average-median price differences among the top 50 neighborhoods ranked by average price.
 
 ## Business Question 2: Which NYC Neighborhoods Have the Largest Price Premium For an Entire Home Compared With a Private Room?
 
@@ -152,9 +145,10 @@ However, the weak negative correlation (r=-0.192) between listing volume and ave
 Identify neighborhoods with the largest room-type price gaps and check whether those findings hold when using medians instead of averages.
 
 ### Methodology 
-- Calculate the average entire-home price minus the average private-room price for each neighborhood. 
-- Repeat using median prices, then compare neighborhood rankings and premium amomunts.
-- Include listing counts for both room types to provide context.
+- Calculated the average price premium for each neighborhood by subtracting the average private-room price from the average entire-home/apartment price.
+- Calculated the equivalent premium using median prices to evaluate whether average-based premiums reflected typical differences between room types.
+- Compared average and median premium amounts and neighborhood rankings, particularly for Battery Park City, Tribeca, and SoHo, which also appeared among the highest-priced neighborhoods in Business Question 1.
+- Included listing counts for each room type to provide context for the comparisons.
 
 ### Key Findings
 Price Premiums based on average prices by room type
@@ -177,7 +171,7 @@ This overlap raised an additional analytical question: Could unusually expensive
 
 To investigate, I compared average-based pricing premiums with median-based pricing premiums to determine whether the initial results accurately reflected typical price differences between entire homes and private rooms.
 
-Top result was Brighton Beach, but it seemed off, explaination after table.
+To assess whether the highest average-based price premiums also reflected typical room-type pricing differences, I compared average and median premiums for the five neighborhoods identified in the initial analysis.
 
 |  Neighborhood  | Average Premium  |   Median Premium  |  Average minus Median Premium  |
 | ---| ---: | ---: | ---:|
@@ -193,33 +187,36 @@ Median premiums are smaller in every neighborhood. Battery Park City's premium d
 
 Among these five neighborhoods, Tribeca has the largest median premium at $210, as oppose to Battery Park City leading with the average premium.
 
-Larger average premiums suggest sensitivity to unusually high prices. 
+The differences between average-based and median-based premiums suggest that unusually expensive listings may be influencing the average premiums. Examining individual listing prices would be necessary to determine the extent of that influence.
 
-Examining individual listing prices would be needed to confirm.
 
-### Business Interpretation
-Entire homes/apartments generally commanded higher prices than private rooms, but the size of the premium varied across neighborhoods.
+#### Business Interpretation
+The analysis indicates that entire homes/apartments command higher listing prices than private rooms across the five neighborhoods examined. However, the size of these premiums varies considerably depending on whether average or median prices are used.
 
-Tbe findings suggest that hosts should consider neighborhood-specific pricing patterns rather than assuming higher listing volume atuomatically corresponds to larger price premiums.
+Battery Park City had the highest average price premium at $383, compared with a median premium of $125. In contrast, Tribeca had the highest median premium among these five neighborhoods at $210, despite ranking second by average premium. These differences suggest that average-based premiums may be influenced by unusually expensive listings and may overstate typical room-type pricing differences.
 
-### Supporting SQL Analysis
-1. Price Premium Average Analysis
+For hosts evaluating competitive pricing, median premiums may provide a more useful benchmark for typical differences between entire homes and private rooms. Average premiums remain informative, but should be interpreted alongside median premiums and the number of listings in each room-type category.
 
-[View SQL Query](SQL/nyc_airbnb_analysis.sql#L140-L165) - Calculates the average price difference between entire homes/apartments and private rooms, including listing counts.
+#### Supporting SQL Analysis
+1. Average Price Premium Analysis - 
 
-2. Price Premium with Median Analysis
+[View SQL Query](SQL/nyc_airbnb_analysis.sql#L140-L165) - Calculates the difference between average entire-home/apartment and private-room listing prices by neighborhood, including listing counts for each room type.
 
-[View SQL Query](SQL/nyc_airbnb_analysis.sql#L174-L223)- Compares average premiums between home/apartment and private rooms, with median premiums.
+2. Average vs. Median Price Premium Analysis
+
+[View SQL Query](SQL/nyc_airbnb_analysis.sql#L174-L223)- Compares average-based and median-based price premiums to evaluate how the choice of pricing measure affects premium amount and neighborhood rankings.
 
 #### Business Question 3: Neighborhood Activity and Demand Indicators
 Which neighborhoods show the strongest signs of Airbnb demand based on listing activity and review frequency?
 
 #### Objective
-Identify neighborhoods with higher review activity, using reviews per month as a proxy for demand and listing counts to provide market context.
+Identify NYC neighborhoods with the highest average review activity per listing and examine how those findings compare with neighborhoods that have larger number of listings.
 
 #### Methodolgy
-- Compare reviews per month across neighborhoods and include listing counts alongside the results.
-- Review both average and median review activity to assess whether the findings reflect typical listings or are influenced by a smaller number of highly reviewed listings.
+- Calculated the average and median reviews per month for each neighborhood using listings with available review data.
+- Ranked neighborhoods by average review per month to identify areas with the highest review activity per listing.
+- Compared these results with neighborhoods ranked by the number of listings containing review data to evaluate differences between review activity and market size.
+- Calculated the Pearson correlation between total neighborhood listings and average reviews per month to investigate whether listing volume is associated with review activity.
 
 
 #### Key Findings
@@ -232,7 +229,9 @@ Identify neighborhoods with higher review activity, using reviews per month as a
 |  South Ozone Park  |  40  |  38  |  3.18  |  2.0  |
 |  Jamaica  |  231  |  192  |  3.15  |  2.06  |
 
-**The top 5 neighborhoods by average reviews per month all happened to be in Queens. The total listings was on the lower side, so I decided to order the list by listings with review data, to get a better understanding contextually.**
+The five neighborhoods with the highest average reviews per month were all located in Queens. However, these neighborhoods had relatively small listing counts, ranging from 40 to 231 total listings.
+
+To provide additional context, I conducted a second comparison by ranking neighborhoods according to the number of listings with available review data. This allowed me to examine review activity in neighborhoods with larger samples and determine whether higher listing volume was associated with higher average review frequency.
 
 |  Neighborhood  | Total Listings  |  Listings with Review Data  |  Average Reviews per Month  |  Median Reviews Per Month |
 | ---| ---: | ---: | ---:| ---:| 
@@ -243,14 +242,20 @@ Identify neighborhoods with higher review activity, using reviews per month as a
 |  Hell's Kitchen  |  1958  |  1532  |  1.84  |  1.0  |
 
 
-The largest markets by reviewed listing count do not have the highest review rates per listing.  The smaller listing count neighborhoods had higher reviews per month averages, while the higher listing count neighborhoods had much smaller reviews per month averages. To further investigate, I decided to run a correlation query between the total listing count by neighborhood and reviews per month.
+The Pearson correlation between total neighborhood listings and average reviews per month was -0.206, indicating a weak negative linear relationship.
 
-Correlation = -0.206
+This suggests that neighborhoods with more listings tended to have slightly lower average review frequency per listing. However, the relationship is weak, meaning listing volume alone does not strongly explain differences in review activity across neighborhoods.
+
+Because reviews per month measures review frequency rather than actual bookings, these findings should be interpreted as indicators of review activity rather than direct measures of occupancy or customer demand. Listings without available review data were excluded from the average and median review calculations.
 
 
 
 #### Business Interpertations
-Hosts should consider both market size and review frequency; a larger market does not automatically mean more frequent guest activity for an individual listing.
+The analysis suggests that neighborhoods with higher listing volumes do not necessarily experience higher average review activity per listing. While smaller neighborhoods in Queens, such as East Elmhurst and Springfield Gardens, recorded some of the highest average reviews per month, larger markets such as Williamsburg and Bedford-Stuyvesant showed lower average review frequencies.
+
+The weak negative correlation (r=-0.206) further suggests that neighborhood listing volume alone is not a strong indicator or average review activity.
+
+For hosts evaluating potential markets, these findings highlight the importance of considering both neighborhood listing volume and review frequency. A neighborhood with fewer listings but higher average review activity may warrant further investigation as a potential opportunity. However, review activity alone cannot establish actual booking demand, occupancy rates, or profitability.
 
 
 #### Limitations
@@ -258,16 +263,20 @@ Reviews are an indirect activity measure, missing review rates were excluded, an
 
 #### Supporting SQL Analysis
 
-1. Listings and Average Reviews per Month Analysis:
+1. Neighborhood Average and Median Review Activity
 
 
-   [View SQL Query](SQL/nyc_airbnb_analysis.sql#L234-L245) 
+   [View SQL Query](SQL/nyc_airbnb_analysis.sql#L234-L245) - Calculates average and median reviews per month by neighborhood, including total listings and listings with available review data.
+   
 
-2. Listing Count and Average Reviews per Month Correlation:
+2. Review Activity in High-Volume Neighborhoods
 
    
-   [View SQL Query](SQL/nyc_airbnb_analysis.sql#L252-L265)
+   [View SQL Query](SQL/nyc_airbnb_analysis.sql#L252-L265) - Ranks neighborhoods by the number of listings with review data to compare review frequency across larger neighborhood samples.
 
+3. Listing Volume vs. Review Activity Correlation
+
+SQLLLLLL - Calculates the Pearson correlation between total neighborhood listings and average reviews per month to evaluate the strength and direction of their linear relationship.
 
 
 
