@@ -2,9 +2,9 @@
 
 ## Project Overview
 
-This project analyzes NYC Airbnb listings to identify neighborhood pricing patterns, compare room=type premiums, and evaluate factors associated with listing prices.
+This project analyzes NYC Airbnb listings to identify neighborhood pricing patterns, compare room-type premiums, and examine review activity as an indicator of market demand.
 
-Using Google BigQuery for data cleaning and SQL analysis, and Tableau for visualizations, the project examines how average and median prices differ across neighborhoods, how property types influence pricing, and what these findings suggest for competitive pricing decisions. 
+Using Google BigQuery for data cleaning and SQL analysis, and Tableau for visualizations, the project investigates differences between average and median listing prices, pricing premium for entire home versus private rooms, and variations in review frequency across neighborhoods. These findings provide insights into neighborhood pricing patterns and market activity to support more informed pricing decisions. 
 
 
 ### Business Questions
@@ -23,14 +23,13 @@ Using Google BigQuery for data cleaning and SQL analysis, and Tableau for visual
 - **Tableau**: Data visualization and interactive dashboard development.
 
 ##### Dataset
-- **Source**: NYC Airbnb Open Data (Kaggle)
+- **Source:** [NYC Airbnb Open Data (Kaggle)](https://www.kaggle.com/datasets/dgomonov/new-york-city-airbnb-open-data)
 
 The dataset contains 48,895 Airbnb listings across New York City's five boroughs. It includes information on neighborhood locations, room types, listing prices, minimum-night requirements, review activity, host listing counts, and availability.
 
 These variables provide the foundation for analyzing neighborhood pricing patterns, room-type premiums, and review activity across the NYC Airbnb market.
 
-### Analysis
-
+## Analysis
 
 ### SQL Analysis
 
@@ -45,10 +44,10 @@ Before conducting the business analysis, I used Google BigQuery to examine the d
 #### Key Findings
 
 - Total lisitings: 48,895  [View SQL Query](SQL/nyc_airbnb_analysis.sql#L17-L20)
-- Duplicate listing IDs: 0  [View SQL Query](SQL/nyc_airbnb_analysis.sql#L24-L32) 
-- Missing host names: 21  [View SQL Query](SQL/nyc_airbnb_analysis.sql#L36-L40)
-- Missing reviews per month: 10,052  [View SQL Query](SQL/nyc_airbnb_analysis.sql#L45-L49)
-- Listings with a price of $0: 11  [View SQL Query](SQL/nyc_airbnb_analysis.sql#L54-L58)
+- Duplicate listing IDs: No duplicate listing IDs were identified.  [View SQL Query](SQL/nyc_airbnb_analysis.sql#L24-L32) 
+- Missing host names: 21 listings contained missing host_name values. These records were retained because host names were not required for the completed analysis.     [View SQL Query](SQL/nyc_airbnb_analysis.sql#L36-L40)
+- Missing reviews per month: 10,052 listings contained missing reviews_per_month values. These were excluded from review-frequency calculations because missing values do not necessarily indicate zero review activity.  [View SQL Query](SQL/nyc_airbnb_analysis.sql#L45-L49)
+- Listings with a price of $0: 11 listings had prices of $0 and were excluded from pricing calculations to avoid distorting average and median prices.                 [View SQL Query](SQL/nyc_airbnb_analysis.sql#L54-L58)
 
 #### Data Quality Considerations
 
