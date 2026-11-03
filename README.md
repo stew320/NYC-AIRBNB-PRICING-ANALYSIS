@@ -181,7 +181,7 @@ To assess whether the highest average-based price premiums also reflected typica
 |  Little Italy  |  $195  |  $94  |  $101  |
 |  Nolita  |  $181  |  $125  |  $56  |
 
-All five neighborhoods still have positive median premiums, supporting that entire homes/apartments cost more than private rooms.
+All five neighborhoods have positive median premiums, indicating that entire homes/apartments typically have higher listing prices than private rooms in these neigborhoods.
 
 Median premiums are smaller in every neighborhood. Battery Park City's premium decreases from $383 using averages to $125 using medians. 
 
@@ -247,7 +247,6 @@ The Pearson correlation between total neighborhood listings and average reviews 
 This suggests that neighborhoods with more listings tended to have slightly lower average review frequency per listing. However, the relationship is weak, meaning listing volume alone does not strongly explain differences in review activity across neighborhoods.
 
 Because reviews per month measures review frequency rather than actual bookings, these findings should be interpreted as indicators of review activity rather than direct measures of occupancy or customer demand. Listings without available review data were excluded from the average and median review calculations.
-
 
 
 #### Business Interpretation
