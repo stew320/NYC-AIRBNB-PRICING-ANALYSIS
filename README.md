@@ -278,6 +278,13 @@ Reviews are an indirect activity measure, missing review rates were excluded, an
 
 SQLLLLLL - Calculates the Pearson correlation between total neighborhood listings and average reviews per month to evaluate the strength and direction of their linear relationship.
 
+#### Limitations
+
+**- Historical Data :** The analysis uses a historical NYC Airbnb dataset. Listing prices, neighborhood activity, and market conditions may have changed since the data was collected. Findings should not be interpreted as current market conditions.
+**-Listing Prices vs. Actual Revenue:** The dataset contains advertised listing prices rather than confirmed transaction prices. Therefore, the analysis cannot determine actual booking revenue, occupancy rates, or profitability.
+**-Review Activity as a Demand Proxy:** Reviews per month provide an indirect indicator of guest activity, but they do not measure actual bookings. Not every guest leaves a review, and listings without available review data were excluded from review-frequency calculations.
+**-Unequal Neighborhood Sample Sizes:** Neighborhoods have different numbers of listings, and some room-type comparisons involve relatively small samples. Results from smaller groups may be more sensitive to unusually high or low listing prices.
+
 
 
 
