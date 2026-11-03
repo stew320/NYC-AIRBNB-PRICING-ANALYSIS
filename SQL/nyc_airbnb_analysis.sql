@@ -134,6 +134,29 @@ ORDER BY avg_price DESC;
 -- volume and a smaller average-to-median gap suggest that their high average prices are more representative of typical listings prices and are 
 -- less likely to be driven primarily by a small number of high-priced outliers.
 
+-- To further investigate I ran a Pearson correlation between total listings and the average-median difference.
+
+SELECT
+  neighbourhood_group,
+  neighbourhood,
+  COUNT(*) AS total_listings,
+  COUNT(reviews_per_month) AS listings_with_review_data,
+  ROUND(AVG(reviews_per_month), 2) AS avg_reviews_per_month,
+  ROUND(
+    APPROX_QUANTILES(reviews_per_month, 100)[OFFSET(50)],
+    2
+  ) AS median_review_per_month
+FROM `possible-lotus-511718-p7.nyc_airbnb.air_bnb_listings`
+GROUP BY 
+  neighbourhood_group,
+  neighbourhood
+HAVING COUNT(reviews_per_month) >= 20
+ORDER BY
+    listings_with_review_data DESC
+LIMIT 5
+
+-- Correlation results was -0.192, showing almost no negative linear relationship.
+
 -- Business Question 2: Which neighborhoods have the largest price premium for Entire home/apt listings compared with Private rooms, and how does
 -- listing volume affect the significance of that premium?
 
