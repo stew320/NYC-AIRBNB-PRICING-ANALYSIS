@@ -136,24 +136,29 @@ ORDER BY avg_price DESC;
 
 -- To further investigate I ran a Pearson correlation between total listings and the average-median difference.
 
-SELECT
-  neighbourhood_group,
-  neighbourhood,
-  COUNT(*) AS total_listings,
-  COUNT(reviews_per_month) AS listings_with_review_data,
-  ROUND(AVG(reviews_per_month), 2) AS avg_reviews_per_month,
-  ROUND(
-    APPROX_QUANTILES(reviews_per_month, 100)[OFFSET(50)],
-    2
-  ) AS median_review_per_month
-FROM `possible-lotus-511718-p7.nyc_airbnb.air_bnb_listings`
-GROUP BY 
-  neighbourhood_group,
-  neighbourhood
-HAVING COUNT(reviews_per_month) >= 20
+WITH top_50 AS (
+SELECT 
+ neighbourhood_group,
+ neighbourhood,
+ COUNT(*) AS total_listings,
+ ROUND(AVG(price), 2) AS avg_price,
+ APPROX_QUANTILES(price, 2)[OFFSET (1)] AS median_price,
+ ROUND(AVG(price) - APPROX_QUANTILES(price, 2)[OFFSET (1)], 2) AS avg_median_difference
+FROM 
+ `possible-lotus-511718-p7.nyc_airbnb.air_bnb_listings`
+WHERE
+ price > 0 
+GROUP BY
+ neighbourhood_group,
+ neighbourhood
 ORDER BY
-    listings_with_review_data DESC
-LIMIT 5
+ avg_price DESC
+LIMIT 50
+)
+SELECT ROUND(CORR(total_listings, ABS(avg_median_difference)), 3)
+AS listing_median_price_gap_corr
+FROM top_50
+
 
 -- Correlation results was -0.192, showing almost no negative linear relationship.
 
