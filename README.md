@@ -59,10 +59,10 @@ Before conducting the business analysis, I used Google BigQuery to examine the d
 
 ### Business Question 1: Which NYC Neighborhoods Have the Highest Average Listing Prices, and How Do Median Prices Compare?
 
-## Objective
+#### Objective
 Identify neighborhoods with the highest average Airbnb listing prices and compare average prices with median prices to better understand neighborhood pricing patterns and the influence of high-priced lsitings.
 
-## Methodoly
+#### Methodology
 
 Listings with prices of $0 were excluded from the pricing analysis. Using SQL in Google BigQuery, average listing prices, median listing prices, and total listing counts were calculated for each neighborhood.
 
@@ -71,7 +71,7 @@ Neighborhoods were ranked by average listing price to identify the highest-price
 A separate analysis focused on neighborhoods with more than 1,000 listings to evaluate pricing patterns in higher-volume markets and provide additional context for interpreting average-median price differences.
 
 
-## Key Findings
+#### Key Findings
 
 **Average vs. Median Price Comparison**
 
@@ -116,7 +116,7 @@ To investigate the relationship between neighborhood listing volume and pricing 
 
 The resulting correlation was -0.192, indicating a weak negative linear relationship. This suggests that neighborhoods with more listings tended to have slightly smaller average-median price differences within this group, although listing volume alone does not strongly explain these differences.
 
-## Business Interpretation
+#### Business Interpretation
 
 Neighborhoods with substantial differences between average and median listing prices may contain unusually expensive properties that pull the average upward. For hosts evaluating competitive prices, relying on the average alone could therefore create a misleading impression of typical neighborhood pricing.
 
@@ -124,7 +124,7 @@ In neighborhoods such as East Village and Hell's Kitchen, where average prices a
 
 The weak negative correlation (r=-0.192) indicates that listing volume alone does not strongly explain differences between average and median prices. Hosts should therefore consider average prices, median prices, and neighborhood listing counts together when evaluating local pricing patterns.
 
-## Supporting SQL Analysis
+#### Supporting SQL Analysis
 1. Average Listing Price vs. Median Listing Price Analysis:
 
    
@@ -141,16 +141,16 @@ The weak negative correlation (r=-0.192) indicates that listing volume alone doe
 
 ## Business Question 2: Which NYC Neighborhoods Have the Largest Price Premium For an Entire Home Compared With a Private Room?
 
-### Objective
+#### Objective
 Identify neighborhoods with the largest room-type price gaps and check whether those findings hold when using medians instead of averages.
 
-### Methodology 
+#### Methodology 
 - Calculated the average price premium for each neighborhood by subtracting the average private-room price from the average entire-home/apartment price.
 - Calculated the equivalent premium using median prices to evaluate whether average-based premiums reflected typical differences between room types.
 - Compared average and median premium amounts and neighborhood rankings, particularly for Battery Park City, Tribeca, and SoHo, which also appeared among the highest-priced neighborhoods in Business Question 1.
 - Included listing counts for each room type to provide context for the comparisons.
 
-### Key Findings
+#### Key Findings
 Price Premiums based on average prices by room type
 
 |  Neighborhood  | Entire Home Avg  |   Private Room Avg  |  Price Premium  |  Entire Home Listings  |  Private Room Listings  |
@@ -206,13 +206,13 @@ For hosts evaluating competitive pricing, median premiums may provide a more use
 
 [View SQL Query](SQL/nyc_airbnb_analysis.sql#L202-L251)- Compares average-based and median-based price premiums to evaluate how the choice of pricing measure affects premium amount and neighborhood rankings.
 
-#### Business Question 3: Neighborhood Activity and Demand Indicators
+### Business Question 3: Neighborhood Activity and Demand Indicators
 Which neighborhoods show the strongest signs of Airbnb demand based on listing activity and review frequency?
 
 #### Objective
 Identify NYC neighborhoods with the highest average review activity per listing and examine how those findings compare with neighborhoods that have larger number of listings.
 
-#### Methodolgy
+#### Methodology
 - Calculated the average and median reviews per month for each neighborhood using listings with available review data.
 - Ranked neighborhoods by average review per month to identify areas with the highest review activity per listing.
 - Compared these results with neighborhoods ranked by the number of listings containing review data to evaluate differences between review activity and market size.
@@ -250,16 +250,13 @@ Because reviews per month measures review frequency rather than actual bookings,
 
 
 
-#### Business Interpertations
+#### Business Interpretation
 The analysis suggests that neighborhoods with higher listing volumes do not necessarily experience higher average review activity per listing. While smaller neighborhoods in Queens, such as East Elmhurst and Springfield Gardens, recorded some of the highest average reviews per month, larger markets such as Williamsburg and Bedford-Stuyvesant showed lower average review frequencies.
 
 The weak negative correlation (r=-0.206) further suggests that neighborhood listing volume alone is not a strong indicator or average review activity.
 
 For hosts evaluating potential markets, these findings highlight the importance of considering both neighborhood listing volume and review frequency. A neighborhood with fewer listings but higher average review activity may warrant further investigation as a potential opportunity. However, review activity alone cannot establish actual booking demand, occupancy rates, or profitability.
 
-
-#### Limitations
-Reviews are an indirect activity measure, missing review rates were excluded, and these results do not establish bookings, occupancy, revenue, or profitability.
 
 #### Supporting SQL Analysis
 
@@ -281,10 +278,10 @@ Reviews are an indirect activity measure, missing review rates were excluded, an
 
 #### Limitations
 
-**- Historical Data :** The analysis uses a historical NYC Airbnb dataset. Listing prices, neighborhood activity, and market conditions may have changed since the data was collected. Findings should not be interpreted as current market conditions.
-**- Listing Prices vs. Actual Revenue:** The dataset contains advertised listing prices rather than confirmed transaction prices. Therefore, the analysis cannot determine actual booking revenue, occupancy rates, or profitability.
-**- Review Activity as a Demand Proxy:** Reviews per month provide an indirect indicator of guest activity, but they do not measure actual bookings. Not every guest leaves a review, and listings without available review data were excluded from review-frequency calculations.
-**- Unequal Neighborhood Sample Sizes:** Neighborhoods have different numbers of listings, and some room-type comparisons involve relatively small samples. Results from smaller groups may be more sensitive to unusually high or low listing prices.
+- **Historical Data :** The analysis uses a historical NYC Airbnb dataset. Listing prices, neighborhood activity, and market conditions may have changed since the data was collected. Findings should not be interpreted as current market conditions.
+- **Listing Prices vs. Actual Revenue:** The dataset contains advertised listing prices rather than confirmed transaction prices. Therefore, the analysis cannot determine actual booking revenue, occupancy rates, or profitability.
+- **Review Activity as a Demand Proxy:** Reviews per month provide an indirect indicator of guest activity, but they do not measure actual bookings. Not every guest leaves a review, and listings without available review data were excluded from review-frequency calculations.
+- **Unequal Neighborhood Sample Sizes:** Neighborhoods have different numbers of listings, and some room-type comparisons involve relatively small samples. Results from smaller groups may be more sensitive to unusually high or low listing prices.
 
 
 
