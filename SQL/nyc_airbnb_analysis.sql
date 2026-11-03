@@ -247,6 +247,28 @@ ORDER BY avg_reviews_per_month DESC;
 -- Findings: After inspecting the query results, I visually assumed there was an inverse pattern. Neighborhoods with the highest average review
 -- frequency tend to have smaller listing volumes, while the neighborhoods with the largest volumes tend to have lower average review frequency.
 
+-- To investigate, I ran a query that ordered the results by total listings with review data.
+
+SELECT
+  neighbourhood_group,
+  neighbourhood,
+  COUNT(*) AS total_listings,
+  COUNT(reviews_per_month) AS listings_with_review_data,
+  ROUND(AVG(reviews_per_month), 2) AS avg_reviews_per_month,
+  ROUND(
+    APPROX_QUANTILES(reviews_per_month, 100)[OFFSET(50)],
+    2
+  ) AS median_review_per_month
+FROM `possible-lotus-511718-p7.nyc_airbnb.air_bnb_listings`
+GROUP BY 
+  neighbourhood_group,
+  neighbourhood
+HAVING COUNT(reviews_per_month) >= 20
+ORDER BY
+    listings_with_review_data DESC
+LIMIT 5
+
+
 -- As neighborhood listing volume increases, does average review frequency tend to decrease? I will see if there is correlation between the two variables.
 
 WITH neighborhood_activity AS (
