@@ -137,7 +137,7 @@ The weak negative correlation (r=-0.192) indicates that listing volume alone doe
 
 3. Listing Volume and Average-Median Price Gap Correlation:
 
-[View SQL Query](SQL/nyc_airbnb_analysis.sql#L000-L000) - Calculates the Pearson correlation between listing volume and average-median price differences among the top 50 neighborhoods ranked by average price.
+[View SQL Query](SQL/nyc_airbnb_analysis.sql#L139-L156) - Calculates the Pearson correlation between listing volume and average-median price differences among the top 50 neighborhoods ranked by average price.
 
 ## Business Question 2: Which NYC Neighborhoods Have the Largest Price Premium For an Entire Home Compared With a Private Room?
 
@@ -200,11 +200,11 @@ For hosts evaluating competitive pricing, median premiums may provide a more use
 #### Supporting SQL Analysis
 1. Average Price Premium Analysis - 
 
-[View SQL Query](SQL/nyc_airbnb_analysis.sql#L140-L165) - Calculates the difference between average entire-home/apartment and private-room listing prices by neighborhood, including listing counts for each room type.
+[View SQL Query](SQL/nyc_airbnb_analysis.sql#L163-L188) - Calculates the difference between average entire-home/apartment and private-room listing prices by neighborhood, including listing counts for each room type.
 
 2. Average vs. Median Price Premium Analysis
 
-[View SQL Query](SQL/nyc_airbnb_analysis.sql#L174-L223)- Compares average-based and median-based price premiums to evaluate how the choice of pricing measure affects premium amount and neighborhood rankings.
+[View SQL Query](SQL/nyc_airbnb_analysis.sql#L197-L246)- Compares average-based and median-based price premiums to evaluate how the choice of pricing measure affects premium amount and neighborhood rankings.
 
 #### Business Question 3: Neighborhood Activity and Demand Indicators
 Which neighborhoods show the strongest signs of Airbnb demand based on listing activity and review frequency?
@@ -266,18 +266,18 @@ Reviews are an indirect activity measure, missing review rates were excluded, an
 1. Neighborhood Average and Median Review Activity
 
 
-   [View SQL Query](SQL/nyc_airbnb_analysis.sql#L234-L245) - Calculates average and median reviews per month by neighborhood, including total listings and listings with available review data.
+   [View SQL Query](SQL/nyc_airbnb_analysis.sql#L257-L268) - Calculates average and median reviews per month by neighborhood, including total listings and listings with available review data.
    
 
 2. Review Activity in High-Volume Neighborhoods
 
    
-   [View SQL Query](SQL/nyc_airbnb_analysis.sql#L252-L269) - Ranks neighborhoods by the number of listings with review data to compare review frequency across larger neighborhood samples.
+   [View SQL Query](SQL/nyc_airbnb_analysis.sql#L275-L292) - Ranks neighborhoods by the number of listings with review data to compare review frequency across larger neighborhood samples.
 
 3. Listing Volume vs. Review Activity Correlation 252 265
 
 
-  [View SQL Query](SQL/nyc_airbnb_analysis.sql#L274-L287) - Calculates the Pearson correlation between total neighborhood listings and average reviews per month to evaluate the strength and direction of their linear relationship.
+  [View SQL Query](SQL/nyc_airbnb_analysis.sql#L297-L310) - Calculates the Pearson correlation between total neighborhood listings and average reviews per month to evaluate the strength and direction of their linear relationship.
 
 #### Limitations
 
