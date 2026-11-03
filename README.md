@@ -276,6 +276,7 @@ Reviews are an indirect activity measure, missing review rates were excluded, an
 
 3. Listing Volume vs. Review Activity Correlation 252 265
 
+
   [View SQL Query](SQL/nyc_airbnb_analysis.sql#L274-L287) - Calculates the Pearson correlation between total neighborhood listings and average reviews per month to evaluate the strength and direction of their linear relationship.
 
 #### Limitations
