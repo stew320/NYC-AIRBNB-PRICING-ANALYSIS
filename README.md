@@ -293,7 +293,7 @@ The dashboard includes:
 - Neighborhoods with the highest average monthly review activity
 - The relationship between listing volume and average monthly reviews
 
-**[View Interactive Tableau Dashboard](https://public.tableau.com/authoring/NYCAirbnbPricingAnalysis/Sheet1/Dashboard%201#1)**
+**[View Interactive Tableau Dashboard](https://public.tableau.com/app/profile/sirak.teweldebrhan/viz/NYCAirbnbPricingAnalysis/Dashboard1#1)**
 
 
 
