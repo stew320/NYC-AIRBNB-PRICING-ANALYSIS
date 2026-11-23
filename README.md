@@ -283,6 +283,19 @@ For hosts evaluating potential markets, these findings highlight the importance 
 - **Unequal Neighborhood Sample Sizes:** Neighborhoods have different numbers of listings, and some room-type comparisons involve relatively small samples. Results from smaller groups may be more sensitive to unusually high or low listing prices.
 
 
+## Interactive Tableau Dashboard
+
+To complement the SQL analysis, I developed an interactive Tableau dashboard exploring NYC Airbnb pricing patterns and review activity.
+
+The dashboard includes:
+- Average vs. median nightly prices by neighborhood
+- Entire-home vs. private-room pricing comparisons
+- Neighborhoods with the highest average monthly review activity
+- The relationship between listing volume and average monthly reviews
+
+**[View Interactive Tableau Dashboard](https://public.tableau.com/authoring/NYCAirbnbPricingAnalysis/Sheet1/Dashboard%201#1)**
+
+
 
 
 
